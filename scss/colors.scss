@@ -1,0 +1,17 @@
+// Import Material color variables
+@import "node_modules/daemonite-material/assets/scss/_colors";
+
+$primary: (
+  color: $material-color-light-green-500,
+  dark: $material-color-light-green-900,
+  light: $material-color-light-green-100
+);
+
+$secondary: (
+  color: $material-color-amber-500,
+  dark: $material-color-amber-900,
+  light: $material-color-amber-100
+);
+
+// Customize Material CSS
+@import "node_modules/daemonite-material/assets/scss/material";
