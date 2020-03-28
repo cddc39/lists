@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Make quick and simple lists.",
   "main": "index.js",
+  "repository": "https://gitlab.com/dmikalova/lists",
   "scripts": {
     "lite": "lite-server",
     "scss": "node-sass scss/ -o css/",
@@ -14,7 +15,6 @@
   "author": "David Mikalova",
   "license": "ISC",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.12.1",
     "bootstrap": "^4.4.1",
     "daemonite-material": "^4.1.1",
     "jquery": "^3.4.1",
