@@ -1,0 +1,28 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.fab-br {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+}
+
+.item-menu {
+  height: 1.125rem;
+  width: 1.125rem;
+  font-size: 1em;
+  line-height: 1em;
+}
+
+.pill-add {
+  @extend .border-left;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.pill-sub {
+  @extend .border-right;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}

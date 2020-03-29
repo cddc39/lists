@@ -19,8 +19,15 @@
     />
 
     <!-- build:css css/main.css -->
+    <!-- Add Material CSS, replace Bootstrap CSS -->
+    <link
+      href="node_modules/daemonite-material/css/material.min.css"
+      rel="stylesheet"
+    />
+
     <!-- Custom styles -->
-    <link rel="stylesheet" href="css/lists.css" />
+    <link rel="stylesheet" href="css/colors.css" />
+    <link rel="stylesheet" href="css/styles.css" />
     <!-- endbuild -->
 
     <link
@@ -34,7 +41,7 @@
   <body>
     <header>
       <nav class="bg-primary navbar sticky-top">
-        <a class="navbar-brand" href="">
+        <a class="navbar-brand" href="#">
           <i class="material-icons mr-3">list</i>
           Lists
         </a>
@@ -71,35 +78,32 @@
     </header>
 
     <main>
-      <div class="font-weight-bold list-group list-group-flush">
-        <a
-          class="d-flex justify-content-between list-group-item list-group-item-action"
-          href="list-groceries.html"
+      <ul class="font-weight-bold list-group list-group-flush">
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
         >
           Groceries
           <span class="badge badge-secondary badge-pill">
             5
           </span>
-        </a>
-        <a
-          class="d-flex justify-content-between list-group-item list-group-item-action"
-          href="list-cosmetics.html"
+        </li>
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
         >
           Cosmetics
           <span class="badge badge-secondary badge-pill">
             3
           </span>
-        </a>
-        <a
-          class="d-flex justify-content-between list-group-item list-group-item-action"
-          href="list-home.html"
+        </li>
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
         >
           Home
           <span class="badge badge-secondary badge-pill">
             1
           </span>
-        </a>
-      </div>
+        </li>
+      </ul>
 
       <div class="fab-br">
         <button class="btn btn-float btn-primary btn-sm" type="button">

@@ -28,16 +28,18 @@
       rel="stylesheet"
     />
 
-    <title>Lists</title>
+    <title>Groceries</title>
   </head>
 
   <body>
     <header>
       <nav class="bg-primary navbar sticky-top">
-        <a class="navbar-brand" href="">
-          <i class="material-icons mr-3">list</i>
-          Lists
+        <a class="navbar-toggler" href="index.html">
+          <i class="material-icons">arrow_back</i>
         </a>
+        <div class="flex-grow-1 navbar-brand">
+          Groceries
+        </div>
 
         <button
           aria-expanded="false"
@@ -54,17 +56,20 @@
           class="dropdown-menu dropdown-menu-right"
         >
           <a class="dropdown-item" href="#">
-            <i class="material-icons mr-3">account_circle</i>
-            Account
+            <i class="material-icons mr-3">get_app</i>
+            Download
+          </a>
+          <a class="dropdown-item" href="#">
+            <i class="material-icons mr-3">create</i>
+            Edit
+          </a>
+          <a class="dropdown-item" href="#">
+            <i class="material-icons mr-3">share</i>
+            Share
           </a>
           <a class="dropdown-item" href="#">
             <i class="material-icons mr-3">sort</i>
-            Sort lists
-          </a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">
-            <i class="material-icons mr-3">info</i>
-            About
+            Sort
           </a>
         </div>
       </nav>
@@ -72,37 +77,77 @@
 
     <main>
       <div class="font-weight-bold list-group list-group-flush">
+        <div
+          class="d-flex justify-content-between list-group-item list-group-item-action"
+        >
+          <div class="badge badge-pill badge-secondary pill-sub">
+            <i class="material-icons small">remove</i>
+          </div>
+          <div class="badge badge-pill badge-secondary pill-add ">
+            <i class="material-icons small">add</i>
+          </div>
+          <div class="flex-grow-1 mx-3">
+            <a href="#avocadoes">2 Hass avocadoes</a>
+          </div>
+          <a href="#edit">
+            <i class="material-icons mt-1">create</i>
+          </a>
+        </div>
         <a
           class="d-flex justify-content-between list-group-item list-group-item-action"
           href="list-groceries.html"
         >
-          Groceries
-          <span class="badge badge-secondary badge-pill">
+          <div class="badge badge-pill badge-secondary pill-sub">
+            <i class="material-icons small">remove</i>
+          </div>
+          <div class="badge badge-pill badge-secondary pill-add ">
+            <i class="material-icons small">add</i>
+          </div>
+          <div class="flex-grow-1 mx-3">tomatoes</div>
+          <div class="badge badge-secondary badge-pill">
             5
-          </span>
+          </div>
         </a>
         <a
           class="d-flex justify-content-between list-group-item list-group-item-action"
-          href="list-cosmetics.html"
+          href="list-groceries.html"
         >
-          Cosmetics
-          <span class="badge badge-secondary badge-pill">
-            3
-          </span>
+          <div class="badge badge-pill badge-secondary pill-sub">
+            <i class="material-icons small">remove</i>
+          </div>
+          <div class="badge badge-pill badge-secondary pill-add ">
+            <i class="material-icons small">add</i>
+          </div>
+          <div class="flex-grow-1 mx-3">2 medium white onions</div>
+          <div class="badge badge-secondary badge-pill">
+            5
+          </div>
         </a>
         <a
           class="d-flex justify-content-between list-group-item list-group-item-action"
-          href="list-home.html"
+          href="list-groceries.html"
         >
-          Home
-          <span class="badge badge-secondary badge-pill">
-            1
-          </span>
+          <div class="badge badge-pill badge-secondary pill-sub">
+            <i class="material-icons small">remove</i>
+          </div>
+          <div class="badge badge-pill badge-secondary pill-add ">
+            <i class="material-icons small">add</i>
+          </div>
+          <div class="flex-grow-1 mx-3">yogurt</div>
+          <div class="badge badge-secondary badge-pill">
+            5
+          </div>
         </a>
       </div>
 
       <div class="fab-br">
-        <button class="btn btn-float btn-primary btn-sm" type="button">
+        <button
+          class="btn btn-float btn-primary btn-sm"
+          data-toggle="tooltip"
+          data-placement="top"
+          title="Add item"
+          type="button"
+        >
           <i class="material-icons">add</i>
         </button>
       </div>

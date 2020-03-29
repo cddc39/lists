@@ -7375,7 +7375,7 @@ select.is-valid.form-control:focus[multiple], select.is-valid.form-control:focus
 .border-top-0 {
   border-top: 0 !important; }
 
-.border-right {
+.border-right, .pill-sub {
   border-right: 1px solid rgba(0, 0, 0, 0.12) !important; }
 
 .border-right-0 {
@@ -7387,7 +7387,7 @@ select.is-valid.form-control:focus[multiple], select.is-valid.form-control:focus
 .border-bottom-0 {
   border-bottom: 0 !important; }
 
-.border-left {
+.border-left, .pill-add {
   border-left: 1px solid rgba(0, 0, 0, 0.12) !important; }
 
 .border-left-0 {
@@ -9675,3 +9675,25 @@ a.text-light:active, a.text-light:focus, a.text-light:hover {
   .table .thead-dark td,
   .table .thead-dark th {
     color: inherit; } }
+
+body {
+  font-family: "Roboto", sans-serif; }
+
+.fab-br {
+  position: absolute;
+  bottom: 16px;
+  right: 16px; }
+
+.item-menu {
+  height: 1.125rem;
+  width: 1.125rem;
+  font-size: 1em;
+  line-height: 1em; }
+
+.pill-add {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0; }
+
+.pill-sub {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0; }
