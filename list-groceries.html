@@ -55,19 +55,19 @@
           aria-labelledby="dropdownMenuButton"
           class="dropdown-menu dropdown-menu-right"
         >
-          <a class="dropdown-item" href="#">
+          <a class="dropdown-item" href="#download">
             <i class="material-icons mr-3">get_app</i>
             Download
           </a>
-          <a class="dropdown-item" href="#">
+          <a class="dropdown-item" href="#edit">
             <i class="material-icons mr-3">create</i>
             Edit
           </a>
-          <a class="dropdown-item" href="#">
+          <a class="dropdown-item" href="#share">
             <i class="material-icons mr-3">share</i>
             Share
           </a>
-          <a class="dropdown-item" href="#">
+          <a class="dropdown-item" href="#sort">
             <i class="material-icons mr-3">sort</i>
             Sort
           </a>
@@ -80,26 +80,37 @@
         <div
           class="d-flex justify-content-between list-group-item list-group-item-action"
         >
-          <div class="badge badge-pill badge-secondary pill-sub">
+          <a href="#sub" class="badge badge-pill badge-secondary pill-sub">
             <i class="material-icons small">remove</i>
-          </div>
-          <div class="badge badge-pill badge-secondary pill-add ">
+          </a>
+          <a href="#add" class="badge badge-pill badge-secondary pill-add">
             <i class="material-icons small">add</i>
-          </div>
-          <div class="flex-grow-1 mx-3">
-            <a href="#avocadoes">2 Hass avocadoes</a>
-          </div>
-          <a href="#edit">
-            <i class="material-icons mt-1">create</i>
+          </a>
+          <a href="#avocadoes" class="flex-grow-1 mx-3 remove-link"
+            >2 Hass avocadoes
+          </a>
+          <a class="fab-inline" href="#edit">
+            <i class="material-icons">create</i>
           </a>
         </div>
+        <!--
+          Rewrite this as an a like below
+          Turn the pills etc into buttons
+          Use this to disable the background list group item action
+          https://stackoverflow.com/questions/42874955/add-buttons-to-linked-items-on-list-group-bootstrap
+          Actually implement a modal or link for the edit and add buttons to make sure it works.
+         -->
         <a
           class="d-flex justify-content-between list-group-item list-group-item-action"
           href="list-groceries.html"
         >
-          <div class="badge badge-pill badge-secondary pill-sub">
+          <span
+            class="badge badge-pill badge-secondary pill-sub"
+            type="button"
+            value="sub"
+          >
             <i class="material-icons small">remove</i>
-          </div>
+          </span>
           <div class="badge badge-pill badge-secondary pill-add ">
             <i class="material-icons small">add</i>
           </div>
