@@ -1,6 +1,9 @@
 # App builder
 FROM node:lts-alpine AS builder
 
+# Install package dependencies
+RUN apk add autoconf automake file g++ libpng-dev libtool make nasm pkgconfig python3
+
 # Install node modules
 WORKDIR /app
 COPY "package*.json" "./"
