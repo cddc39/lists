@@ -33,12 +33,15 @@
 
   <body>
     <header>
+      <!-- Navbar -->
       <nav class="bg-primary navbar sticky-top">
+        <!-- Navbar title -->
         <a class="navbar-brand" href="">
           <i class="material-icons mr-3">list</i>
           Lists
         </a>
 
+        <!-- Navbar menu -->
         <button
           aria-expanded="false"
           aria-haspopup="true"
@@ -53,16 +56,16 @@
           aria-labelledby="dropdownMenuButton"
           class="dropdown-menu dropdown-menu-right"
         >
-          <a class="dropdown-item" href="#">
+          <a class="dropdown-item" href="#account">
             <i class="material-icons mr-3">account_circle</i>
             Account
           </a>
-          <a class="dropdown-item" href="#">
+          <a class="dropdown-item" data-toggle="modal" href="#sortModal">
             <i class="material-icons mr-3">sort</i>
             Sort lists
           </a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">
+          <a class="dropdown-item" href="about.html">
             <i class="material-icons mr-3">info</i>
             About
           </a>
@@ -100,13 +103,69 @@
           </span>
         </a>
       </div>
-
-      <div class="fab-br">
-        <button class="btn btn-float btn-primary btn-sm" type="button">
-          <i class="material-icons">add</i>
-        </button>
-      </div>
     </main>
+
+    <!-- Sort lists modal -->
+    <div
+      class="modal fade"
+      id="sortModal"
+      role="dialog"
+      aria-labelledby="sortModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header bg-primary">
+            <h5 class="modal-title" id="sortModalLabel">Sort lists</h5>
+            <button
+              type="button"
+              class="close fab-inline"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <i class="material-icons">close</i>
+            </button>
+          </div>
+          <div class="modal-body pt-3">
+            <div class="custom-control custom-radio">
+              <input
+                type="radio"
+                id="sortAlphaRadio"
+                name="customRadio"
+                class="custom-control-input"
+              />
+              <label class="custom-control-label" for="sortAlphaRadio">
+                Alphabetically
+              </label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input
+                type="radio"
+                id="sortRecentRadio"
+                name="customRadio"
+                class="custom-control-input"
+                checked
+              />
+              <label class="custom-control-label" for="sortRecentRadio">
+                Recently used
+              </label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">
+              Apply
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating action button -->
+    <div class="fab-br">
+      <button class="btn btn-float btn-primary btn-sm" type="button">
+        <i class="material-icons">add</i>
+      </button>
+    </div>
 
     <!-- build:js js/main.js -->
     <!-- jQuery, Popper.js, and Bootstrap JS -->
