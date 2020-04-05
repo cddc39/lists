@@ -78,83 +78,91 @@
     </header>
 
     <main>
-      <!-- Main list -->
+      <!-- Items list -->
       <div class="font-weight-bold list-group list-group-flush">
-        <!-- List item -->
-        <div
-          class="d-flex justify-content-between list-group-item list-group-item-action"
-        >
-          <a href="#sub" class="badge badge-pill badge-secondary pill-sub">
-            <i class="material-icons small">remove</i>
-          </a>
-          <a href="#add" class="badge badge-pill badge-secondary pill-add">
-            <i class="material-icons small">add</i>
-          </a>
-          <a href="#avocadoes" class="flex-grow-1 mx-3 remove-link"
-            >2 Hass avocadoes
-          </a>
-          <a class="fab-inline" href="#edit">
-            <i class="material-icons">create</i>
-          </a>
-        </div>
-        <!--
-          Rewrite this as an a like below
-          Turn the pills etc into buttons
-          Use this to disable the background list group item action
-          https://stackoverflow.com/questions/42874955/add-buttons-to-linked-items-on-list-group-bootstrap
-          Actually implement a modal or link for the edit and add buttons to make sure it works.
-         -->
-        <!-- List item -->
-        <a
-          class="d-flex justify-content-between list-group-item list-group-item-action"
-          href="list-groceries.html"
-        >
+        <!-- avocadoes -->
+        <a class="list-group-item-custom" id="avocadoes-item">
           <span
             class="badge badge-pill badge-secondary pill-sub"
-            type="button"
-            value="sub"
+            id="avocadoes-sub"
           >
             <i class="material-icons small">remove</i>
           </span>
-          <div class="badge badge-pill badge-secondary pill-add">
+          <span
+            class="badge badge-pill badge-secondary pill-add"
+            id="avocadoes-add"
+          >
             <i class="material-icons small">add</i>
-          </div>
-          <div class="flex-grow-1 mx-3">tomatoes</div>
-          <div class="badge badge-secondary badge-pill">
-            5
-          </div>
+          </span>
+          <span href="#avocadoes" class="flex-grow-1 mx-3 remove-link"
+            ><span id="avocadoes-count">2</span> Hass avocadoes
+          </span>
+          <span class="fab-inline" id="avocadoes-edit">
+            <i class="material-icons">create</i>
+          </span>
         </a>
-        <!-- List item -->
-        <a
-          class="d-flex justify-content-between list-group-item list-group-item-action"
-          href="list-groceries.html"
-        >
-          <div class="badge badge-pill badge-secondary pill-sub">
+        <!-- tomatoes -->
+        <a class="list-group-item-custom" id="tomatoes-item">
+          <span
+            class="badge badge-pill badge-secondary pill-sub"
+            id="tomatoes-sub"
+          >
             <i class="material-icons small">remove</i>
-          </div>
-          <div class="badge badge-pill badge-secondary pill-add">
+          </span>
+          <span
+            class="badge badge-pill badge-secondary pill-add"
+            id="tomatoes-add"
+          >
             <i class="material-icons small">add</i>
-          </div>
-          <div class="flex-grow-1 mx-3">2 medium white onions</div>
-          <div class="badge badge-secondary badge-pill">
-            5
-          </div>
+          </span>
+          <span href="#tomatoes" class="flex-grow-1 mx-3 remove-link"
+            ><span id="tomatoes-count">3</span> tomatoes
+          </span>
+          <span class="fab-inline" id="tomatoes-edit">
+            <i class="material-icons">create</i>
+          </span>
         </a>
-        <!-- List item -->
-        <a
-          class="d-flex justify-content-between list-group-item list-group-item-action"
-          href="list-groceries.html"
-        >
-          <div class="badge badge-pill badge-secondary pill-sub">
+        <!-- onions -->
+        <a class="list-group-item-custom" id="onions-item">
+          <span
+            class="badge badge-pill badge-secondary pill-sub"
+            id="onions-sub"
+          >
             <i class="material-icons small">remove</i>
-          </div>
-          <div class="badge badge-pill badge-secondary pill-add">
+          </span>
+          <span
+            class="badge badge-pill badge-secondary pill-add"
+            id="onions-add"
+          >
             <i class="material-icons small">add</i>
-          </div>
-          <div class="flex-grow-1 mx-3">yogurt</div>
-          <div class="badge badge-secondary badge-pill">
-            5
-          </div>
+          </span>
+          <span href="#onions" class="flex-grow-1 mx-3 remove-link"
+            ><span id="onions-count">5</span> medium white onions
+          </span>
+          <span class="fab-inline" id="onions-edit">
+            <i class="material-icons">create</i>
+          </span>
+        </a>
+        <!-- yogurt -->
+        <a class="list-group-item-custom" id="yogurt-item">
+          <span
+            class="badge badge-pill badge-secondary pill-sub"
+            id="yogurt-sub"
+          >
+            <i class="material-icons small">remove</i>
+          </span>
+          <span
+            class="badge badge-pill badge-secondary pill-add"
+            id="yogurt-add"
+          >
+            <i class="material-icons small">add</i>
+          </span>
+          <span href="#yogurt" class="flex-grow-1 mx-3 remove-link"
+            ><span id="yogurt-count">4</span> yogurts
+          </span>
+          <span class="fab-inline" id="yogurt-edit">
+            <i class="material-icons">create</i>
+          </span>
         </a>
       </div>
 
