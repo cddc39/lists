@@ -1,12 +1,12 @@
 import React from "react";
-import Navbar from "./Navbar";
+import NavBar from "./NavBar/";
 
 function Body() {
   return (
     <div className="Body">
-      <Navbar />
+      <NavBar />
 
-      <main>
+      {/* <main>
         <div class="font-weight-bold list-group list-group-flush">
           <a
             class="d-flex justify-content-between list-group-item list-group-item-action"
@@ -30,10 +30,10 @@ function Body() {
             <span class="badge badge-secondary badge-pill">1</span>
           </a>
         </div>
-      </main>
+      </main> */}
 
       {/* <!-- Sort lists modal --> */}
-      <div
+      {/* <div
         class="modal fade"
         id="sortModal"
         role="dialog"
@@ -94,26 +94,26 @@ function Body() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* <!-- Floating action button --> */}
-      <div class="fab-br">
+      {/* <div class="fab-br">
         <button class="btn btn-float btn-primary btn-sm" type="button">
           <i class="material-icons">add</i>
         </button>
-      </div>
+      </div> */}
 
       {/* <!-- build:js js/main.js --> */}
       {/* <!-- jQuery, Popper.js, and Bootstrap JS --> */}
-      <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+      {/* <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
       <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
-      <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+      <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script> */}
 
       {/* <!-- Then Material JavaScript --> */}
-      <script src="node_modules/daemonite-material/js/material.min.js"></script>
+      {/* <script src="node_modules/daemonite-material/js/material.min.js"></script> */}
 
       {/* <!-- Custom JS --> */}
-      <script src="./scripts.js"></script>
+      {/* <script src="./scripts.js"></script> */}
       {/* <!-- endbuild --> */}
     </div>
   );
