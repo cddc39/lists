@@ -1,36 +1,33 @@
 import React from "react";
-import NavBar from "./NavBar/";
+import Header from "./Header";
+import Lists from "./Lists";
+import List from "./List";
+import { LISTS } from "../shared/lists";
+import { Switch, Route, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 
-function Body() {
+export default function Main() {
+  const ListPath = ({ match }) => {
+    const list = LISTS.filter((list) => list.path === match.params.listPath)[0];
+    if (!list) {
+      return <Redirect to="/" />;
+    }
+
+    return <List list={list} />;
+  };
+
   return (
-    <div className="Body">
-      <NavBar />
-
-      {/* <main>
-        <div class="font-weight-bold list-group list-group-flush">
-          <a
-            class="d-flex justify-content-between list-group-item list-group-item-action"
-            href="list-groceries.html"
-          >
-            Groceries
-            <span class="badge badge-secondary badge-pill">5</span>
-          </a>
-          <a
-            class="d-flex justify-content-between list-group-item list-group-item-action"
-            href="list-groceries.html"
-          >
-            Cosmetics
-            <span class="badge badge-secondary badge-pill">3</span>
-          </a>
-          <a
-            class="d-flex justify-content-between list-group-item list-group-item-action"
-            href="list-groceries.html"
-          >
-            Home
-            <span class="badge badge-secondary badge-pill">1</span>
-          </a>
-        </div>
-      </main> */}
+    <div>
+      <Header />
+      <Switch>
+        <Route exact path="/" render={() => <Lists lists={LISTS} />} />
+        <Route
+          path="/list/:listPath"
+          component={ListPath}
+          // render={() => <List list={this.props.list} />}
+        />
+        <Redirect to="/" />
+      </Switch>
 
       {/* <!-- Sort lists modal --> */}
       {/* <div
@@ -118,5 +115,3 @@ function Body() {
     </div>
   );
 }
-
-export default Body;

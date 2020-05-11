@@ -32,7 +32,7 @@ export default function NavBar() {
     <header className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Button className={classes.title} href="#">
+          <Button className={classes.title} href="/">
             <ListIcon className={classes.titleIcon} />
             <Typography className={classes.titleText} variant="h6">
               Lists
