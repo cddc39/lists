@@ -11,7 +11,7 @@ import Link from "@material-ui/core/Link";
 import IconAdd from "@material-ui/icons/AddCircle";
 import IconRemove from "@material-ui/icons/RemoveCircle";
 
-export default ({ list }) => {
+export default ({ list, items, setItemCount }) => {
   if (!list) {
     return <div />;
   }
@@ -124,13 +124,21 @@ export default ({ list }) => {
       </div>
 
       <List component="nav">
-        <RenderListItems items={list.items} />
+        <RenderListItems items={items} setItemCount={setItemCount} />
       </List>
     </main>
   );
 };
 
-function RenderListItem({ item }) {
+function RenderListItem({ item, setItemCount }) {
+  const handleAdd = (item) => {
+    setItemCount(item.id, item.count++);
+  };
+
+  const handleSub = (item) => {
+    setItemCount(item.id, item.count--);
+  };
+
   if (!item) {
     return <div />;
   }
@@ -138,10 +146,10 @@ function RenderListItem({ item }) {
   return (
     <ListItem button>
       <IconButton color="secondary" size="small">
-        <IconRemove />
+        <IconRemove onClick={handleSub(item)} />
       </IconButton>
       <IconButton color="primary" size="small">
-        <IconAdd />
+        <IconAdd onClick={handleAdd(item)} />
       </IconButton>
       <ListItemText className="ml-2" primary={`${item.count} ${item.name}`} />
       <Link href={`#edit-item`}>
@@ -162,7 +170,7 @@ function RenderListItem({ item }) {
   );
 }
 
-function RenderListItems({ items }) {
+function RenderListItems({ items, setItemCount }) {
   if (!items) {
     return <div />;
   }
@@ -170,7 +178,7 @@ function RenderListItems({ items }) {
   return items.map((item, i) => {
     return (
       <div key={i}>
-        <RenderListItem item={item} />
+        <RenderListItem item={item} setItemCount={setItemCount} />
         <Divider />
       </div>
     );

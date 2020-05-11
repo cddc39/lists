@@ -6,7 +6,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 
-function RenderListName({ list }) {
+function RenderListName({ list, items }) {
   if (!list) {
     return <div />;
   }
@@ -16,17 +16,13 @@ function RenderListName({ list }) {
       <ListItem button>
         <ListItemText primary={list.name} />
         {/* TODO: plural/singular items depending on count */}
-        <Chip
-          clickable
-          color="secondary"
-          label={`${list.items.length} items`}
-        />
+        <Chip clickable color="secondary" label={`${items.length} items`} />
       </ListItem>
     </Link>
   );
 }
 
-function RenderListNames({ lists }) {
+function RenderListNames({ lists, items }) {
   if (!lists) {
     return <div />;
   }
@@ -34,14 +30,14 @@ function RenderListNames({ lists }) {
   return lists.map((list) => {
     return (
       <div key={list.id}>
-        <RenderListName list={list} />
+        <RenderListName list={list} items={items} />
         <Divider />
       </div>
     );
   });
 }
 
-export default function Lists(props) {
+export default function Lists({ lists, items }) {
   useEffect(() => {
     document.title = "Lists";
   });
@@ -49,7 +45,7 @@ export default function Lists(props) {
   return (
     <main>
       <List component="nav">
-        <RenderListNames lists={props.lists} />
+        <RenderListNames lists={lists} items={items} />
       </List>
     </main>
   );

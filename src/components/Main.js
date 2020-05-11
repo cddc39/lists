@@ -2,29 +2,60 @@ import React from "react";
 import Header from "./Header";
 import Lists from "./Lists";
 import List from "./List";
-import { LISTS } from "../shared/lists";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import { setItemCount } from "../redux/ActionCreators";
 
-export default function Main() {
+const mapStateToProps = (state) => {
+  return {
+    items: state.items,
+    lists: state.lists,
+  };
+};
+
+const mapDispatchToProps = {
+  setItemCount: (itemId, count) => setItemCount(itemId, count),
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
+
+function Main({ lists, items, setItemCount }) {
+  const listItems = (list) => {
+    console.log("sdfr", list);
+    return list.itemIds.map((itemId) => {
+      const i = items.findIndex((x) => x.id === itemId);
+      return items[i];
+    });
+  };
+
   const ListPath = ({ match }) => {
-    const list = LISTS.filter((list) => list.path === match.params.listPath)[0];
+    console.log("listpath called");
+    // const list = lists.filter((list) => list.path === match.params.listPath)[0];
+    const list = lists[1];
     if (!list) {
       return <Redirect to="/" />;
     }
 
-    return <List list={list} />;
+    console.log("dd", list);
+    const items = listItems(list);
+    console.log("jj", items);
+
+    return <List list={list} items={items} setItemCount={setItemCount} />;
   };
 
   return (
     <div>
       <Header />
       <Switch>
-        <Route exact path="/" render={() => <Lists lists={LISTS} />} />
+        <Route
+          exact
+          path="/"
+          render={() => <Lists lists={lists} items={items} />}
+        />
         <Route
           path="/list/:listPath"
-          component={ListPath}
-          // render={() => <List list={this.props.list} />}
+          // component={ListPath}
+          render={() => <ListPath items={items} setItemCount={setItemCount} />}
         />
         <Redirect to="/" />
       </Switch>
