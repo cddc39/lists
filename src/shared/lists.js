@@ -8,13 +8,13 @@ export const LISTS = [
   {
     id: 1,
     name: "Cosmetics",
-    items: [4],
+    itemIds: [4],
     path: "cosmetics",
   },
   {
     id: 2,
     name: "Home",
-    items: [5, 6],
+    itemIds: [5, 6],
     path: "home",
   },
 ];

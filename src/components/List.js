@@ -23,9 +23,9 @@ export default ({ list, items, setItemCount }) => {
   return (
     <main>
       {/* <!-- Items list --> */}
-      <div class="font-weight-bold list-group list-group-flush">
-        {/* <!-- avocadoes --> */}
-        <a class="list-group-item-custom" id="avocadoes-item">
+      {/* <div class="font-weight-bold list-group list-group-flush"> */}
+      {/* <!-- avocadoes --> */}
+      {/* <a class="list-group-item-custom" id="avocadoes-item">
           <span
             class="badge badge-pill badge-secondary pill-sub"
             id="avocadoes-sub"
@@ -44,9 +44,9 @@ export default ({ list, items, setItemCount }) => {
           <span class="fab-inline" id="avocadoes-edit">
             <i class="material-icons">create</i>
           </span>
-        </a>
-        {/* <!-- tomatoes --> */}
-        <a class="list-group-item-custom" id="tomatoes-item">
+        </a> */}
+      {/* <!-- tomatoes --> */}
+      {/* <a class="list-group-item-custom" id="tomatoes-item">
           <span
             class="badge badge-pill badge-secondary pill-sub"
             id="tomatoes-sub"
@@ -65,9 +65,9 @@ export default ({ list, items, setItemCount }) => {
           <span class="fab-inline" id="tomatoes-edit">
             <i class="material-icons">create</i>
           </span>
-        </a>
-        {/* <!-- onions --> */}
-        <a class="list-group-item-custom" id="onions-item">
+        </a> */}
+      {/* <!-- onions --> */}
+      {/* <a class="list-group-item-custom" id="onions-item">
           <span
             class="badge badge-pill badge-secondary pill-sub"
             id="onions-sub"
@@ -86,9 +86,9 @@ export default ({ list, items, setItemCount }) => {
           <span class="fab-inline" id="onions-edit">
             <i class="material-icons">create</i>
           </span>
-        </a>
-        {/* <!-- yogurt --> */}
-        <a class="list-group-item-custom" id="yogurt-item">
+        </a> */}
+      {/* <!-- yogurt --> */}
+      {/* <a class="list-group-item-custom" id="yogurt-item">
           <span
             class="badge badge-pill badge-secondary pill-sub"
             id="yogurt-sub"
@@ -108,10 +108,10 @@ export default ({ list, items, setItemCount }) => {
             <i class="material-icons">create</i>
           </span>
         </a>
-      </div>
+      </div> */}
 
       {/* <!-- Floating action button --> */}
-      <div class="fab-br">
+      {/* <div class="fab-br">
         <button
           class="btn btn-float btn-primary btn-sm"
           data-toggle="tooltip"
@@ -121,7 +121,7 @@ export default ({ list, items, setItemCount }) => {
         >
           <i class="material-icons">add</i>
         </button>
-      </div>
+      </div> */}
 
       <List component="nav">
         <RenderListItems items={items} setItemCount={setItemCount} />
@@ -131,17 +131,23 @@ export default ({ list, items, setItemCount }) => {
 };
 
 function RenderListItem({ item, setItemCount }) {
-  const handleAdd = (item) => {
-    setItemCount(item.id, item.count++);
-  };
-
-  const handleSub = (item) => {
-    setItemCount(item.id, item.count--);
-  };
-
   if (!item) {
     return <div />;
   }
+
+  const handleAdd = (item) => {
+    const count = item.count + 1;
+    return () => setItemCount(item.id, count);
+  };
+
+  const handleSub = (item) => {
+    const count = Math.max(1, item.count - 1);
+    return () => setItemCount(item.id, count);
+  };
+
+  const crossoffItem = (item) => {
+    return () => console.log("Cross off item", item);
+  };
 
   return (
     <ListItem button>
@@ -151,7 +157,11 @@ function RenderListItem({ item, setItemCount }) {
       <IconButton color="primary" size="small">
         <IconAdd onClick={handleAdd(item)} />
       </IconButton>
-      <ListItemText className="ml-2" primary={`${item.count} ${item.name}`} />
+      <ListItemText
+        onClick={crossoffItem(item)}
+        className="ml-2"
+        primary={`${item.count} ${item.name}`}
+      />
       <Link href={`#edit-item`}>
         <IconButton
           aria-controls="menu"

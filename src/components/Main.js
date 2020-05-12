@@ -29,9 +29,9 @@ function Main({ lists, items, setItemCount }) {
   };
 
   const ListPath = ({ match }) => {
-    console.log("listpath called");
-    // const list = lists.filter((list) => list.path === match.params.listPath)[0];
-    const list = lists[1];
+    console.log("listpath called", match);
+    const list = lists.filter((list) => list.path === match.params.listPath)[0];
+    // const list = lists[1];
     if (!list) {
       return <Redirect to="/" />;
     }
@@ -39,6 +39,7 @@ function Main({ lists, items, setItemCount }) {
     console.log("dd", list);
     const items = listItems(list);
     console.log("jj", items);
+    // return <div>listpath</div>
 
     return <List list={list} items={items} setItemCount={setItemCount} />;
   };
@@ -54,8 +55,8 @@ function Main({ lists, items, setItemCount }) {
         />
         <Route
           path="/list/:listPath"
-          // component={ListPath}
-          render={() => <ListPath items={items} setItemCount={setItemCount} />}
+          component={ListPath}
+          // render={() => <ListPath items={items} setItemCount={setItemCount} />}
         />
         <Redirect to="/" />
       </Switch>
