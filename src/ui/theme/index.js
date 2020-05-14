@@ -1,15 +1,26 @@
 import React from "react";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
-import amber from "@material-ui/core/colors/amber";
-import lightGreen from "@material-ui/core/colors/lightGreen";
+import secondary from "@material-ui/core/colors/amber";
+import primary from "@material-ui/core/colors/lightGreen";
 
 const theme = createMuiTheme({
   palette: {
-    primary: lightGreen,
-    secondary: amber,
+    primary: primary,
+    secondary: secondary,
   },
   themeName: "lists",
 });
+
+theme.overrides = {
+  ...theme.overrides,
+  MuiDialogTitle: {
+    ...theme.MuiDialogTitle,
+    root: {
+      ...theme.root,
+      background: theme.palette.primary.main,
+    },
+  },
+};
 
 const Theme = (props) => {
   return (

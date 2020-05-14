@@ -3,8 +3,8 @@ import { Divider, Menu, MenuItem } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import MoreVert from "@material-ui/icons/MoreVert";
 import AccountCircle from "@material-ui/icons/AccountCircle";
-import Sort from "@material-ui/icons/Sort";
 import Info from "@material-ui/icons/Info";
+import SortMenuItem from "./SortMenuItem";
 
 export default function NavBarMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -45,10 +45,7 @@ export default function NavBarMenu() {
           <AccountCircle className="mr-3" />
           Account
         </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Sort className="mr-3" />
-          Sort lists
-        </MenuItem>
+        <SortMenuItem handleParentClose={handleClose.bind(this)} />
         <Divider />
         <MenuItem onClick={handleClose}>
           <Info className="mr-3" />

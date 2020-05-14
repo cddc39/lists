@@ -21,7 +21,6 @@ export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
 
 function Main({ lists, items, setItemCount }) {
   const listItems = (list) => {
-    console.log("sdfr", list);
     return list.itemIds.map((itemId) => {
       const i = items.findIndex((x) => x.id === itemId);
       return items[i];
@@ -29,17 +28,12 @@ function Main({ lists, items, setItemCount }) {
   };
 
   const ListPath = ({ match }) => {
-    console.log("listpath called", match);
     const list = lists.filter((list) => list.path === match.params.listPath)[0];
-    // const list = lists[1];
     if (!list) {
       return <Redirect to="/" />;
     }
 
-    console.log("dd", list);
     const items = listItems(list);
-    console.log("jj", items);
-    // return <div>listpath</div>
 
     return <List list={list} items={items} setItemCount={setItemCount} />;
   };
@@ -53,77 +47,9 @@ function Main({ lists, items, setItemCount }) {
           path="/"
           render={() => <Lists lists={lists} items={items} />}
         />
-        <Route
-          path="/list/:listPath"
-          component={ListPath}
-          // render={() => <ListPath items={items} setItemCount={setItemCount} />}
-        />
+        <Route path="/list/:listPath" component={ListPath} />
         <Redirect to="/" />
       </Switch>
-
-      {/* <!-- Sort lists modal --> */}
-      {/* <div
-        class="modal fade"
-        id="sortModal"
-        role="dialog"
-        aria-labelledby="sortModalLabel"
-        aria-hidden="true"
-      >
-        <div
-          class="modal-dialog modal-dialog-centered modal-sm"
-          role="document"
-        >
-          <div class="modal-content">
-            <div class="modal-header bg-primary">
-              <h5 class="modal-title" id="sortModalLabel">
-                Sort lists
-              </h5>
-              <button
-                type="button"
-                class="close fab-inline"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <i class="material-icons">close</i>
-              </button>
-            </div>
-            <div class="modal-body pt-3">
-              <div class="custom-control custom-radio">
-                <input
-                  type="radio"
-                  id="sortAlphaRadio"
-                  name="customRadio"
-                  class="custom-control-input"
-                />
-                <label class="custom-control-label" for="sortAlphaRadio">
-                  Alphabetically
-                </label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input
-                  type="radio"
-                  id="sortRecentRadio"
-                  name="customRadio"
-                  class="custom-control-input"
-                  checked
-                />
-                <label class="custom-control-label" for="sortRecentRadio">
-                  Recently used
-                </label>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-success"
-                data-dismiss="modal"
-              >
-                Apply
-              </button>
-            </div>
-          </div>
-        </div>
-      </div> */}
 
       {/* <!-- Floating action button --> */}
       {/* <div class="fab-br">
