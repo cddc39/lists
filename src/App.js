@@ -1,5 +1,4 @@
 import React from "react";
-import "./styles/lists.scss";
 import Theme from "./ui/theme";
 import Main from "./components/Main";
 import { Provider } from "react-redux";

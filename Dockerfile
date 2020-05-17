@@ -1,8 +1,8 @@
 # App builder
 FROM node:lts-alpine AS builder
 
-# Install package dependencies
-RUN apk add autoconf automake file g++ libpng-dev libtool make nasm pkgconfig python3
+# Install fsevents dependencies
+RUN apk add g++ make python3
 
 # Install node modules
 WORKDIR /app
@@ -17,10 +17,10 @@ RUN npm run build
 FROM node:lts-alpine AS server
 
 # Install and configure server
-RUN npm install -g "http-server"
+RUN npm install -g "serve"
 EXPOSE 8080
 USER node
 
 # Copy and run build by default
-COPY --from=builder "/app/dist" "/app/dist"
-CMD [ "http-server", "/app/dist"]
+COPY --from=builder "/app/build" "/app/build"
+CMD [ "serve", "-s", "/app/build"]

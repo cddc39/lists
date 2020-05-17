@@ -1,10 +1,10 @@
 import React from "react";
-import Header from "./Header";
-import Lists from "./Lists";
-import List from "./List";
+import Lists from "./Lists/Lists";
+import List from "./List/List";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { setItemCount } from "../redux/ActionCreators";
+import About from "./About/About";
 
 const mapStateToProps = (state) => {
   return {
@@ -40,7 +40,6 @@ function Main({ lists, items, setItemCount }) {
 
   return (
     <div>
-      <Header />
       <Switch>
         <Route
           exact
@@ -48,28 +47,9 @@ function Main({ lists, items, setItemCount }) {
           render={() => <Lists lists={lists} items={items} />}
         />
         <Route path="/list/:listPath" component={ListPath} />
+        <Route path="/about" component={About} />
         <Redirect to="/" />
       </Switch>
-
-      {/* <!-- Floating action button --> */}
-      {/* <div class="fab-br">
-        <button class="btn btn-float btn-primary btn-sm" type="button">
-          <i class="material-icons">add</i>
-        </button>
-      </div> */}
-
-      {/* <!-- build:js js/main.js --> */}
-      {/* <!-- jQuery, Popper.js, and Bootstrap JS --> */}
-      {/* <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
-      <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
-      <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script> */}
-
-      {/* <!-- Then Material JavaScript --> */}
-      {/* <script src="node_modules/daemonite-material/js/material.min.js"></script> */}
-
-      {/* <!-- Custom JS --> */}
-      {/* <script src="./scripts.js"></script> */}
-      {/* <!-- endbuild --> */}
     </div>
   );
 }
