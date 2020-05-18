@@ -10,6 +10,7 @@ import IconAdd from "@material-ui/icons/AddCircle";
 import IconRemove from "@material-ui/icons/RemoveCircle";
 import Header from "./Header";
 import NewItem from "./NewItem";
+import { Redirect } from "react-router-dom";
 
 function RenderListItem({ item, setItemCount }) {
   if (!item) {
@@ -76,7 +77,7 @@ function RenderListItems({ items, setItemCount }) {
   });
 }
 
-export default ({ list, items, setItemCount }) => {
+const Listc = ({ list, setItemCount }) => {
   useEffect(() => {
     document.title = list.name;
   });
@@ -90,10 +91,28 @@ export default ({ list, items, setItemCount }) => {
       <Header title={list.name} />
       <main>
         <List component="nav">
-          <RenderListItems items={items} setItemCount={setItemCount} />
+          <RenderListItems items={list.items} setItemCount={setItemCount} />
         </List>
       </main>
       <NewItem />
     </div>
   );
+};
+
+export default ({ lists, path, setItemCount }) => {
+  const listItems = (list) => {
+    return list.itemIds.map((itemId) => {
+      const i = list.items.findIndex((x) => x.id === itemId);
+      return list.items[i];
+    });
+  };
+
+  const list = lists.filter((list) => list.path === path)[0];
+  if (!list) {
+    return <Redirect to="/" />;
+  }
+
+  // const items = listItems(list);
+
+  return <Listc list={list} path={path} setItemCount={setItemCount} />;
 };

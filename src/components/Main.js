@@ -1,55 +1,46 @@
 import React from "react";
-import Lists from "./Lists/Lists";
-import List from "./List/List";
-import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { setItemCount } from "../redux/ActionCreators";
-import About from "./About/About";
+import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 
-const mapStateToProps = (state) => {
-  return {
-    items: state.items,
-    lists: state.lists,
-  };
-};
+import About from "./About/";
+import List from "./List/";
+import Lists from "./Lists/";
+import { setItemCount } from "../redux/ActionCreators";
 
 const mapDispatchToProps = {
   setItemCount: (itemId, count) => setItemCount(itemId, count),
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
+const mapStateToProps = (state) => {
+  return {
+    lists: state.lists,
+  };
+};
 
 function Main({ lists, items, setItemCount }) {
-  const listItems = (list) => {
-    return list.itemIds.map((itemId) => {
-      const i = items.findIndex((x) => x.id === itemId);
-      return items[i];
-    });
-  };
-
-  const ListPath = ({ match }) => {
-    const list = lists.filter((list) => list.path === match.params.listPath)[0];
-    if (!list) {
-      return <Redirect to="/" />;
-    }
-
-    const items = listItems(list);
-
-    return <List list={list} items={items} setItemCount={setItemCount} />;
-  };
-
   return (
     <div>
       <Switch>
         <Route
           exact
           path="/"
-          render={() => <Lists lists={lists} items={items} />}
+          render={() => <Lists lists={lists} />}
         />
-        <Route path="/list/:listPath" component={ListPath} />
+        <Route
+          path="/list/:listPath"
+          render={({ match }) => (
+            <List
+              lists={lists}
+              path={match.params.listPath}
+              setItemCount={setItemCount}
+            />
+          )}
+        />
         <Route path="/about" component={About} />
         <Redirect to="/" />
       </Switch>
     </div>
   );
 }
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
