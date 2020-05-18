@@ -1,13 +1,14 @@
 import React from "react";
+
+import MuiFab from "@material-ui/core/Fab";
 import { makeStyles } from "@material-ui/core/styles";
-import Fab from "@material-ui/core/Fab";
-import AddIcon from "@material-ui/icons/Add";
+
+import MuiAddIcon from "@material-ui/icons/Add";
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
   fab: {
-    position: "absolute",
     bottom: theme.spacing(3),
+    position: "absolute",
     right: theme.spacing(3),
   },
 }));
@@ -16,10 +17,8 @@ export default function FloatingActionButtons() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <Fab className={classes.fab} color="primary" aria-label="add">
-        <AddIcon />
-      </Fab>
-    </div>
+    <MuiFab className={classes.fab} color="primary" aria-label="add">
+      <MuiAddIcon />
+    </MuiFab>
   );
 }

@@ -21,7 +21,7 @@ export default ({ list }) => {
   const classes = useStyles();
 
   return (
-    <div key={list.id}>
+    <div>
       <MuiLink href={`/list/${list.path}`}>
         <MuiListItem button>
           <MuiChip
@@ -30,7 +30,7 @@ export default ({ list }) => {
             color="secondary"
             label={`${list.items.length}`}
           />
-          <MuiListItemText className="ml-3" primary={list.name} />
+          <MuiListItemText primary={list.name} />
         </MuiListItem>
       </MuiLink>
       <MuiDivider />

@@ -8,7 +8,7 @@ import MuiMoreVertIcon from "@material-ui/icons/MoreVert";
 
 import About from "./About";
 import Account from "./Account";
-import Sort from "./Sort";
+import SortLists from "./SortLists";
 
 export default () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -47,7 +47,7 @@ export default () => {
         open={open}
       >
         <Account closeMenu={handleClose.bind(this)} />
-        <Sort closeMenu={handleClose.bind(this)} />
+        <SortLists closeMenu={handleClose.bind(this)} />
         <MuiDivider />
         <About closeMenu={handleClose.bind(this)} />
       </MuiMenu>

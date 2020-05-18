@@ -2,7 +2,7 @@ import React from "react";
 
 import MuiList from "@material-ui/core/List";
 
-import ListName from "./ListName";
+import ListRow from "./ListRow";
 
 export default ({ lists }) => {
   if (!lists) {
@@ -13,7 +13,7 @@ export default ({ lists }) => {
     <main>
       <MuiList component="nav">
         {lists.map((list) => {
-          return <ListName list={list} />;
+          return <ListRow list={list} key={list.id} />;
         })}
       </MuiList>
     </main>

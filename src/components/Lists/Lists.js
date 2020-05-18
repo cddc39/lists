@@ -1,24 +1,22 @@
 import React, { useEffect } from "react";
 
-import MuiList from "@material-ui/core/List";
-
-import Header from "./Header/";
-import ListNames from "./ListNames";
+import Header from "../Header/";
+import ListRows from "./ListRows";
 import AddList from "./AddList";
+import HeaderMenu from "./HeaderMenu";
+
+import MuiListIcon from "@material-ui/icons/List";
 
 export default ({ lists }) => {
+  const title = "Lists";
   useEffect(() => {
-    document.title = "Lists";
+    document.title = title;
   });
 
   return (
     <div>
-      <Header />
-      <main>
-        <MuiList component="nav">
-          <ListNames lists={lists} />
-        </MuiList>
-      </main>
+      <Header icon={<MuiListIcon />} menu={<HeaderMenu />} title={title} />
+      <ListRows lists={lists} />
       <AddList />
     </div>
   );

@@ -8,7 +8,7 @@ import Lists from "./Lists/";
 import { setItemCount } from "../redux/ActionCreators";
 
 const mapDispatchToProps = {
-  setItemCount: (itemId, count) => setItemCount(itemId, count),
+  setItemCount: (listId, itemId, count) => setItemCount(listId, itemId, count),
 };
 
 const mapStateToProps = (state) => {
@@ -21,11 +21,7 @@ function Main({ lists, items, setItemCount }) {
   return (
     <div>
       <Switch>
-        <Route
-          exact
-          path="/"
-          render={() => <Lists lists={lists} />}
-        />
+        <Route exact path="/" render={() => <Lists lists={lists} />} />
         <Route
           path="/list/:listPath"
           render={({ match }) => (

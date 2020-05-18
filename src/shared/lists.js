@@ -13,15 +13,15 @@ export const LISTS = [
   {
     id: 1,
     name: "Cosmetics",
-    items: [{ id: 4, name: "moisturizer" }],
+    items: [{ id: 4, name: "moisturizer", count: 1 }],
     path: "cosmetics",
   },
   {
     id: 2,
     name: "Home",
     items: [
-      { id: 5, name: "stapler" },
-      { id: 6, name: "chairs" },
+      { id: 5, name: "stapler", count: 1 },
+      { id: 6, name: "chairs", count: 1 },
     ],
     path: "home",
   },

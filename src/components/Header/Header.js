@@ -7,10 +7,6 @@ import MuiToolbar from "@material-ui/core/Toolbar";
 import MuiTypography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
-import MuiBackIcon from "@material-ui/icons/ArrowBack";
-
-import MenuButton from "./HeaderMenu/MenuButton";
-
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -18,15 +14,12 @@ const useStyles = makeStyles((theme) => ({
   spacer: {
     flexGrow: 1,
   },
-  header: {
-    color: "black",
-  },
-  titleText: {
+  title: {
     textTransform: "none",
   },
 }));
 
-export default ({ title }) => {
+export default ({ icon, menu, title }) => {
   const classes = useStyles();
 
   return (
@@ -38,19 +31,18 @@ export default ({ title }) => {
             aria-describedby="menu"
             aria-haspopup="true"
             aria-label="menu"
-            className={classes.header}
             color="inherit"
             href="/"
           >
-            <MuiBackIcon />
+            {icon}
           </MuiIconButton>
           <MuiButton href={window.location.pathname}>
-            <MuiTypography className={classes.titleText} variant="h6">
+            <MuiTypography className={classes.title} variant="h6">
               {title}
             </MuiTypography>
           </MuiButton>
-          <div className={classes.spacer}></div>
-          <MenuButton />
+          <div className={classes.spacer} />
+          {menu}
         </MuiToolbar>
       </MuiAppBar>
     </header>

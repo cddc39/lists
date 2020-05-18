@@ -11,14 +11,23 @@ export const Lists = (state = LISTS, action) => {
 };
 
 const setItemCount = (state, payload) => {
-  return state.map((item) => {
-    if (item.id !== payload.itemId) {
-      return item;
+  return state.map((list) => {
+    if (list.id !== payload.listId) {
+      return list;
     }
 
     return {
-      ...item,
-      count: payload.itemCount,
+      ...list,
+      items: list.items.map((item) => {
+        if (item.id !== payload.itemId) {
+          return item;
+        }
+
+        return {
+          ...item,
+          count: payload.itemCount,
+        };
+      }),
     };
   });
 };
