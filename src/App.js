@@ -1,15 +1,19 @@
 import React from "react";
-import Theme from "./ui/theme";
-import Main from "./components/Main";
 import { Provider } from "react-redux";
-import { ConfigureStore } from "./redux/configureStore";
 import { BrowserRouter } from "react-router-dom";
+
+import CssBaseline from "@material-ui/core/CssBaseline";
+
+import Main from "./components/Main";
+import { ConfigureStore } from "./redux/configureStore";
+import Theme from "./ui/theme";
 
 const store = ConfigureStore();
 
 function App() {
   return (
     <div className="App">
+      <CssBaseline />
       <Provider store={store}>
         <BrowserRouter>
           <Theme>

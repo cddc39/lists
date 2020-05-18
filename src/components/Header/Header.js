@@ -32,6 +32,7 @@ export default ({ icon, menu, title }) => {
             aria-haspopup="true"
             aria-label="menu"
             color="inherit"
+            edge="start"
             href="/"
           >
             {icon}
