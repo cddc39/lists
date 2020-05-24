@@ -19,7 +19,7 @@ export default () => {
 
   return (
     <div>
-      <Header icon={<MuiBackIcon />} title="About" />
+      <Header icon={<MuiBackIcon />} title="Add list" />
       <MuiList component="nav">
         <MuiListItem>
           <MuiListItemIcon>

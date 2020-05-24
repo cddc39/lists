@@ -1,6 +1,6 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
-import MuiLink from "@material-ui/core/Link";
 import MuiMenuItem from "@material-ui/core/MenuItem";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -14,13 +14,17 @@ const useStyles = makeStyles((theme) => ({
 
 export default ({ closeMenu }) => {
   const classes = useStyles();
+  const history = useHistory();
+
+  const handleClick = () => {
+    closeMenu();
+    history.push("/about");
+  };
 
   return (
-    <MuiLink href="/about">
-      <MuiMenuItem onClick={closeMenu}>
-        <MuiInfoIcon className={classes.icon} />
-        About
-      </MuiMenuItem>
-    </MuiLink>
+    <MuiMenuItem onClick={handleClick}>
+      <MuiInfoIcon className={classes.icon} />
+      About
+    </MuiMenuItem>
   );
 };

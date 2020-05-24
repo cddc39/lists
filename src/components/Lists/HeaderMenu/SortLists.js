@@ -58,9 +58,9 @@ export default ({ closeMenu }) => {
   const [open, setOpen] = React.useState(false);
   const title = "Sort lists";
 
-  const handleOpen = () => {
-    setOpen(true);
+  const handleClick = () => {
     closeMenu();
+    setOpen(true);
   };
 
   const handleClose = () => {
@@ -69,7 +69,7 @@ export default ({ closeMenu }) => {
 
   return (
     <div>
-      <MuiMenuItem onClick={handleOpen}>
+      <MuiMenuItem onClick={handleClick}>
         <MuiSortIcon className={classes.icon} />
         {title}
       </MuiMenuItem>

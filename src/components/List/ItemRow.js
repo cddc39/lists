@@ -1,8 +1,8 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 import MuiDivider from "@material-ui/core/Divider";
 import MuiIconButton from "@material-ui/core/IconButton";
-import MuiLink from "@material-ui/core/Link";
 import MuiListItem from "@material-ui/core/ListItem";
 import MuiListItemText from "@material-ui/core/ListItemText";
 import { makeStyles } from "@material-ui/core/styles";
@@ -23,10 +23,15 @@ export default ({ listId, item, setItemCount }) => {
   }
 
   const classes = useStyles();
+  const history = useHistory();
 
   const handleAdd = (listId, item) => {
     const count = item.count + 1;
     return () => setItemCount(listId, item.id, count);
+  };
+
+  const handleClick = (item) => {
+    return () => history.push(`#edit-item-${item.name}`);
   };
 
   const handleSub = (listId, item) => {
@@ -60,19 +65,17 @@ export default ({ listId, item, setItemCount }) => {
           className={classes.text}
           primary={`${item.count} ${item.name}`}
         />
-        <MuiLink href={`#edit-item`}>
-          <MuiIconButton
-            aria-controls="edit"
-            aria-describedby="edit"
-            aria-haspopup="true"
-            aria-label="edit"
-            // onClick={handleClick}
-            edge="end"
-            size="small"
-          >
-            <MuiEditIcon />
-          </MuiIconButton>
-        </MuiLink>
+        <MuiIconButton
+          aria-controls="edit"
+          aria-describedby="edit"
+          aria-haspopup="true"
+          aria-label="edit"
+          onClick={handleClick(item)}
+          edge="end"
+          size="small"
+        >
+          <MuiEditIcon />
+        </MuiIconButton>
       </MuiListItem>
       <MuiDivider />
     </div>

@@ -17,7 +17,12 @@ export default () => {
   const classes = useStyles();
 
   return (
-    <MuiFab className={classes.fab} color="primary" aria-label="add">
+    <MuiFab
+      aria-label="add"
+      className={classes.fab}
+      color="primary"
+      href="/add-list"
+    >
       <MuiAddIcon />
     </MuiFab>
   );

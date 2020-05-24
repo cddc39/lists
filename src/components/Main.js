@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 
 import About from "./About/";
+import Account from "./Account/";
+import AddList from "./AddList/";
 import List from "./List/";
 import Lists from "./Lists/";
 import { setItemCount } from "../redux/ActionCreators";
@@ -14,10 +16,11 @@ const mapDispatchToProps = {
 const mapStateToProps = (state) => {
   return {
     lists: state.lists,
+    loggedIn: state.loggedIn,
   };
 };
 
-function Main({ lists, items, setItemCount }) {
+function Main({ lists, setItemCount }) {
   return (
     <div>
       <Switch>
@@ -33,6 +36,8 @@ function Main({ lists, items, setItemCount }) {
           )}
         />
         <Route path="/about" component={About} />
+        <Route path="/account" component={Account} />
+        <Route path="/add-list" component={AddList} />
         <Redirect to="/" />
       </Switch>
     </div>

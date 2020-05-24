@@ -8,3 +8,10 @@ export const setItemCount = (listId, itemId, itemCount) => ({
     listId: listId,
   },
 });
+
+export const login = (loggedIn) => ({
+  type: ActionTypes.LOGIN,
+  payload: {
+    loggedIn: loggedIn,
+  },
+});

@@ -17,7 +17,7 @@ function App() {
       <Provider store={store}>
         <BrowserRouter>
           <Theme>
-            <Main></Main>
+            <Main />
           </Theme>
         </BrowserRouter>
       </Provider>

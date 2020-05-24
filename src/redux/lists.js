@@ -5,6 +5,8 @@ export const Lists = (state = LISTS, action) => {
   switch (action.type) {
     case ActionTypes.SET_ITEM_COUNT:
       return setItemCount(state, action.payload);
+    case ActionTypes.LOGIN:
+      return login(state, action.payload);
     default:
       return state;
   }
@@ -30,4 +32,11 @@ const setItemCount = (state, payload) => {
       }),
     };
   });
+};
+
+const login = (state, payload) => {
+  return {
+    ...state,
+    loggedIn: payload.loggedIn,
+  };
 };

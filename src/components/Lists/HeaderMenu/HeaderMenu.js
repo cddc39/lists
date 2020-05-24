@@ -6,8 +6,8 @@ import MuiIconButton from "@material-ui/core/IconButton";
 
 import MuiMoreVertIcon from "@material-ui/icons/MoreVert";
 
-import About from "./About";
-import Account from "./Account";
+import About from "../../About/MenuItem";
+import Account from "../../Account/MenuItem";
 import SortLists from "./SortLists";
 
 export default () => {
