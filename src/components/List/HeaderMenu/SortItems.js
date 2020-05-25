@@ -2,6 +2,7 @@ import React from "react";
 
 import MuiButton from "@material-ui/core/Button";
 import MuiDialog from "@material-ui/core/Dialog";
+import MuiDivider from "@material-ui/core/Divider";
 import MuiDialogActions from "@material-ui/core/DialogActions";
 import MuiDialogContent from "@material-ui/core/DialogContent";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
@@ -11,6 +12,7 @@ import MuiIconButton from "@material-ui/core/IconButton";
 import MuiMenuItem from "@material-ui/core/MenuItem";
 import MuiRadio from "@material-ui/core/Radio";
 import MuiRadioGroup from "@material-ui/core/RadioGroup";
+import MuiTypography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
 import MuiCloseIcon from "@material-ui/icons/Close";
@@ -28,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SortChoices = () => {
+const SortChoices = ({ title }) => {
   const [value, setValue] = React.useState("alphabetically");
 
   const handleChange = (event) => {
@@ -37,7 +39,12 @@ const SortChoices = () => {
 
   return (
     <MuiFormControl component="fieldset">
-      <MuiRadioGroup name="listSortOrder" value={value} onChange={handleChange}>
+      <MuiTypography variant="h6">{title}</MuiTypography>
+      <MuiRadioGroup
+        name="listItemSortOrder"
+        value={value}
+        onChange={handleChange}
+      >
         <MuiFormControlLabel
           value="alphabetically"
           control={<MuiRadio />}
@@ -89,7 +96,11 @@ export default ({ closeMenu }) => {
           </MuiIconButton>
         </MuiDialogTitle>
         <MuiDialogContent>
-          <SortChoices />
+          <SortChoices title="List items" />
+          <MuiDivider />
+          <SortChoices title="Recent items" />
+          <MuiDivider />
+          <SortChoices title="Adding items" />
         </MuiDialogContent>
         <MuiDialogActions>
           <MuiButton

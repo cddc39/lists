@@ -46,6 +46,7 @@ export default () => {
         onClose={handleClose}
         open={open}
       >
+        <div />
         <Download closeMenu={handleClose.bind(this)} />
         <Edit closeMenu={handleClose.bind(this)} />
         <Share closeMenu={handleClose.bind(this)} />
