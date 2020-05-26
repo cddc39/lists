@@ -1,8 +1,21 @@
-import { LISTS } from "../shared/lists";
 import * as ActionTypes from "./ActionTypes";
 
-export const Lists = (state = LISTS, action) => {
+export const Lists = (
+  state = { isLoading: true, errMsg: null, lists: [] },
+  action
+) => {
   switch (action.type) {
+    case ActionTypes.ADD_LISTS:
+      return {
+        ...state,
+        errMsg: null,
+        isLoading: false,
+        lists: action.payload,
+      };
+    case ActionTypes.LISTS_LOADING:
+      return { ...state, errMsg: null, isLoading: true, lists: [] };
+    case ActionTypes.LISTS_FAILED:
+      return { ...state, errMsg: action.payload, isLoading: false };
     case ActionTypes.SET_ITEM_COUNT:
       return setItemCount(state, action.payload);
     case ActionTypes.LOGIN:

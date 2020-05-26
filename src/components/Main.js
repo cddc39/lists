@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 
@@ -7,29 +7,45 @@ import Account from "./Account/";
 import AddList from "./AddList/";
 import List from "./List/";
 import Lists from "./Lists/";
-import { setItemCount } from "../redux/ActionCreators";
+import { fetchLists, setItemCount } from "../redux/ActionCreators";
 
 const mapDispatchToProps = {
+  fetchLists: () => fetchLists(),
   setItemCount: (listId, itemId, count) => setItemCount(listId, itemId, count),
 };
 
 const mapStateToProps = (state) => {
   return {
     lists: state.lists,
-    loggedIn: state.loggedIn,
   };
 };
 
-function Main({ lists, setItemCount }) {
+function Main({ lists, fetchLists, setItemCount }) {
+  useEffect(() => {
+    fetchLists();
+  }, [fetchLists]);
+
   return (
     <div>
       <Switch>
-        <Route exact path="/" render={() => <Lists lists={lists} />} />
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <Lists
+              errMsg={lists.errMsg}
+              isLoading={lists.isLoading}
+              lists={lists.lists}
+            />
+          )}
+        />
         <Route
           path="/list/:listPath"
           render={({ match }) => (
             <List
-              lists={lists}
+              errMsg={lists.errMsg}
+              isLoading={lists.isLoading}
+              lists={lists.lists}
               path={match.params.listPath}
               setItemCount={setItemCount}
             />
