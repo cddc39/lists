@@ -18,9 +18,9 @@ export const listsLoading = () => ({
   type: ActionTypes.LISTS_LOADING,
 });
 
-export const listsFailed = (errMess) => ({
+export const listsFailed = (error) => ({
   type: ActionTypes.LISTS_FAILED,
-  payload: errMess,
+  payload: error,
 });
 
 export const addLists = (lists) => ({

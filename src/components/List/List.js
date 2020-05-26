@@ -9,8 +9,9 @@ import { Loading } from "../Loading";
 
 import MuiBackIcon from "@material-ui/icons/ArrowBack";
 
-const List = ({ errMsg, isLoading, list, setItemCount }) => {
-  if (isLoading) {
+const List = ({ error, loading, list, setItemCount }) => {
+  console.log("here");
+  if (loading) {
     return (
       <div className="container">
         <div className="row">
@@ -20,12 +21,12 @@ const List = ({ errMsg, isLoading, list, setItemCount }) => {
     );
   }
 
-  if (errMsg) {
+  if (error) {
     return (
       <div className="container">
         <div className="row">
           <div className="col">
-            <h4>{errMsg}</h4>
+            <h4>{error}</h4>
           </div>
         </div>
       </div>
@@ -34,7 +35,7 @@ const List = ({ errMsg, isLoading, list, setItemCount }) => {
 
   return (
     <div>
-      <Header icon={<MuiBackIcon />} title={list.name} menu={<HeaderMenu />} />
+      <Header icon={<MuiBackIcon />} menu={<HeaderMenu />} title={list.name} />
       <ItemRows
         items={list.items}
         listId={list.id}
