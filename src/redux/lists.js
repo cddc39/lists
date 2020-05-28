@@ -12,6 +12,8 @@ export const Lists = (
         loading: false,
         lists: action.payload,
       };
+    case ActionTypes.ADD_LIST:
+      return addList(state, action.payload);
     case ActionTypes.LISTS_LOADING:
       return { ...state, error: null, loading: true, lists: [] };
     case ActionTypes.LISTS_FAILED:
@@ -23,6 +25,13 @@ export const Lists = (
     default:
       return state;
   }
+};
+
+const addList = (state, payload) => {
+  return {
+    ...state,
+    lists: [...state.lists, payload],
+  };
 };
 
 const setItemCount = (state, payload) => {

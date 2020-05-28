@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import { connect } from "react-redux";
 
 import MuiButton from "@material-ui/core/Button";
 import MuiCard from "@material-ui/core/Card";
 import MuiCardActions from "@material-ui/core/CardActions";
 import MuiCardContent from "@material-ui/core/CardContent";
 import MuiCardMedia from "@material-ui/core/CardMedia";
-import MuiFormControl from "@material-ui/core/FormControl";
 import MuiGrid from "@material-ui/core/Grid";
 import MuiTextField from "@material-ui/core/TextField";
 import MuiTypography from "@material-ui/core/Typography";
@@ -17,6 +17,11 @@ import MuiSearchIcon from "@material-ui/icons/Search";
 import MuiTakePhotoIcon from "@material-ui/icons/PhotoCamera";
 
 import Header from "../Header";
+import { postList } from "../../redux/ActionCreators";
+
+const mapDispatchToProps = {
+  postList: (list) => postList(list),
+};
 
 const useStyles = makeStyles({
   root: {
@@ -35,8 +40,27 @@ const useStyles = makeStyles({
   },
 });
 
-export default () => {
+export default connect(
+  null,
+  mapDispatchToProps
+)(({ postList }) => {
   const classes = useStyles();
+  const [error, setError] = useState(false);
+  const [nameErr, setNameErr] = useState("");
+  const [name, setName] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("new list:", { name: name });
+    postList({ items: [], name: name, path: name.toLowerCase() });
+  };
+
+  const onChange = (e) => {
+    if (e.target.value.length === 0) {
+      setError(true);
+      setNameErr("You must have a name");
+    }
+  };
 
   return (
     <div>
@@ -44,7 +68,7 @@ export default () => {
       <MuiCard className={classes.root}>
         <MuiCardMedia image="test" title="List image" />
         <MuiCardContent>
-          <MuiFormControl>
+          <form id="add-list" onSubmit={handleSubmit}>
             <MuiGrid
               container
               direction="column"
@@ -53,9 +77,15 @@ export default () => {
               spacing={3}
             >
               <MuiGrid item>
-                <form noValidate autoComplete="off">
-                  <MuiTextField id="standard-basic" label="Name" />
-                </form>
+                <MuiTextField
+                  error={error}
+                  helperText={nameErr}
+                  id="standard-basic"
+                  label="Name"
+                  onChange={onChange}
+                  onInput={(e) => setName(e.target.value)}
+                  value={name}
+                />
               </MuiGrid>
               <MuiGrid item>
                 <MuiTypography variant="h6">Photo</MuiTypography>
@@ -63,7 +93,7 @@ export default () => {
               <MuiGrid item>
                 <MuiCardMedia
                   className={classes.media}
-                  image="http://192.168.86.21:3000/photo-placeholder.jpg"
+                  image="http://localhost:3000/photo-placeholder.jpg"
                   title="List image"
                 />
               </MuiGrid>
@@ -95,14 +125,19 @@ export default () => {
                 </MuiButton>
               </MuiGrid>
             </MuiGrid>
-          </MuiFormControl>
+          </form>
         </MuiCardContent>
         <MuiCardActions>
-          <MuiButton color="primary" variant="contained">
+          <MuiButton
+            form="add-list"
+            color="primary"
+            type="submit"
+            variant="contained"
+          >
             Save
           </MuiButton>
         </MuiCardActions>
       </MuiCard>
     </div>
   );
-};
+});

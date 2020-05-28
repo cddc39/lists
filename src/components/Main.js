@@ -1,40 +1,20 @@
 import React from "react";
-import { connect } from "react-redux";
-import { Switch, Route, Redirect, withRouter } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 import About from "./About/";
 import Account from "./Account/";
 import AddList from "./AddList/";
 import List from "./List/";
 import Lists from "./Lists/";
-import { setItemCount } from "../redux/ActionCreators";
 
-const mapDispatchToProps = {
-  setItemCount: (listId, itemId, count) => setItemCount(listId, itemId, count),
-};
-
-const mapStateToProps = (state) => {
-  return {
-    lists: state.lists,
-  };
-};
-
-const Main = ({ lists, setItemCount }) => {
+export default () => {
   return (
     <div>
       <Switch>
         <Route exact path="/" component={Lists} />
         <Route
           path="/list/:listPath"
-          render={({ match }) => (
-            <List
-              error={lists.error}
-              loading={lists.loading}
-              lists={lists.lists}
-              path={match.params.listPath}
-              setItemCount={setItemCount}
-            />
-          )}
+          render={({ match }) => <List path={match.params.listPath} />}
         />
         <Route path="/about" component={About} />
         <Route path="/account" component={Account} />
@@ -44,5 +24,3 @@ const Main = ({ lists, setItemCount }) => {
     </div>
   );
 };
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));

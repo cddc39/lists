@@ -30,7 +30,13 @@
     {
       "id": 1,
       "name": "Cosmetics",
-      "items": [{ "id": 4, "name": "moisturizer", "count": 1 }],
+      "items": [
+        {
+          "id": 4,
+          "name": "moisturizer",
+          "count": 1
+        }
+      ],
       "path": "cosmetics"
     },
     {
@@ -49,6 +55,18 @@
         }
       ],
       "path": "home"
+    },
+    {
+      "items": [
+        {
+          "id": 5,
+          "name": "stapler",
+          "count": 1
+        }
+      ],
+      "name": "KljalksfKJLKJ",
+      "path": "kljalksfkjlkj",
+      "id": 3
     }
   ],
   "account": {
