@@ -30,7 +30,6 @@ export const postItem = (item) => (dispatch) => {
   return axios
     .post(`${baseUrl}/items`, item)
     .then(({ data }) => {
-      console.log("resp", data);
       return dispatch(addItem(data));
     })
     .catch((err) => {
@@ -84,7 +83,6 @@ export const postList = (list) => (dispatch) => {
   return axios
     .post(`${baseUrl}/lists`, list)
     .then(({ data }) => {
-      console.log("resp", data);
       return dispatch(addList(data));
     })
     .catch((err) => {

@@ -51,8 +51,7 @@ export default connect(
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("new list:", { name: name });
-    postList({ items: [], name: name, path: name.toLowerCase() });
+    postList({ itemIds: [], name: name, path: name.toLowerCase() });
   };
 
   const onChange = (e) => {
