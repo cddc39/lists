@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import MuiDivider from "@material-ui/core/Divider";
@@ -11,13 +12,22 @@ import MuiAddIcon from "@material-ui/icons/AddCircle";
 import MuiEditIcon from "@material-ui/icons/Edit";
 import MuiRemoveIcon from "@material-ui/icons/RemoveCircle";
 
+import { setItemCount } from "../../redux/ActionCreators";
+
+const mapDispatchToProps = {
+  setItemCount: (itemId, count) => setItemCount(itemId, count),
+};
+
 const useStyles = makeStyles((theme) => ({
   text: {
     marginLeft: theme.spacing(2),
   },
 }));
 
-export default ({ listId, item, setItemCount }) => {
+export default connect(
+  null,
+  mapDispatchToProps
+)(({ item, setItemCount }) => {
   if (!item) {
     return <div />;
   }
@@ -25,43 +35,35 @@ export default ({ listId, item, setItemCount }) => {
   const classes = useStyles();
   const history = useHistory();
 
-  const handleAdd = (listId, item) => {
+  const handleAdd = (item) => {
     const count = item.count + 1;
-    return () => setItemCount(listId, item.id, count);
+    return () => setItemCount(item.id, count);
   };
 
   const handleClick = (item) => {
     return () => history.push(`#edit-item-${item.name}`);
   };
 
-  const handleSub = (listId, item) => {
+  const handleSub = (item) => {
     const count = Math.max(1, item.count - 1);
-    return () => setItemCount(listId, item.id, count);
+    return () => setItemCount(item.id, count);
   };
 
-  const crossoffItem = (listId, item) => {
+  const crossoffItem = (item) => {
     return () => console.log("Cross off item", item);
   };
 
   return (
     <div>
       <MuiListItem button>
-        <MuiIconButton
-          color="secondary"
-          onClick={handleSub(listId, item)}
-          size="small"
-        >
+        <MuiIconButton color="secondary" onClick={handleSub(item)} size="small">
           <MuiRemoveIcon />
         </MuiIconButton>
-        <MuiIconButton
-          color="primary"
-          onClick={handleAdd(listId, item)}
-          size="small"
-        >
+        <MuiIconButton color="primary" onClick={handleAdd(item)} size="small">
           <MuiAddIcon />
         </MuiIconButton>
         <MuiListItemText
-          onClick={crossoffItem(listId, item)}
+          onClick={crossoffItem(item)}
           className={classes.text}
           primary={`${item.count} ${item.name}`}
         />
@@ -80,4 +82,4 @@ export default ({ listId, item, setItemCount }) => {
       <MuiDivider />
     </div>
   );
-};
+});

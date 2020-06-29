@@ -9,28 +9,24 @@ import Header from "../Header";
 import HeaderMenu from "./HeaderMenu/";
 import ItemRows from "./ItemRows";
 import { Loading } from "../Loading";
-import { fetchLists, setItemCount } from "../../redux/ActionCreators";
+import { fetchItems, fetchLists } from "../../redux/ActionCreators";
 
 const mapDispatchToProps = {
+  fetchItems: () => fetchItems(),
   fetchLists: () => fetchLists(),
-  setItemCount: (listId, itemId, count) => setItemCount(listId, itemId, count),
 };
 
 const mapStateToProps = (state) => ({
   error: state.lists.error,
-  loading: state.lists.loading,
   lists: state.lists.lists,
+  loading: state.lists.loading,
 });
 
-const List = ({ list, setItemCount }) => {
+const List = ({ list }) => {
   return (
     <div>
       <Header icon={<MuiBackIcon />} menu={<HeaderMenu />} title={list.name} />
-      <ItemRows
-        items={list.items}
-        listId={list.id}
-        setItemCount={setItemCount}
-      />
+      <ItemRows itemIds={list.itemIds} />
       <AddItem />
     </div>
   );
@@ -39,10 +35,11 @@ const List = ({ list, setItemCount }) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(({ error, fetchLists, loading, lists, path, setItemCount }) => {
+)(({ error, fetchItems, fetchLists, loading, lists, path }) => {
   useEffect(() => {
+    fetchItems();
     fetchLists();
-  }, [fetchLists]);
+  }, [fetchItems, fetchLists]);
 
   const list = lists.filter((list) => list.path === path)[0];
   useEffect(() => {
@@ -82,5 +79,5 @@ export default connect(
     return <Redirect to="/" />;
   }
 
-  return <List list={list} setItemCount={setItemCount} />;
+  return <List list={list} />;
 });

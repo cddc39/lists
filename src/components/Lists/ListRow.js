@@ -32,7 +32,7 @@ export default ({ list }) => {
           className={classes.itemChip}
           clickable
           color="secondary"
-          label={`${list.items.length}`}
+          label={`${list.itemIds.length}`}
         />
         <MuiListItemText primary={list.name} />
       </MuiListItem>

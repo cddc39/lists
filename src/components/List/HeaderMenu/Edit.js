@@ -24,7 +24,7 @@ export default ({ closeMenu }) => {
   return (
     <MuiMenuItem onClick={handleClick}>
       <MuiEditIcon className={classes.icon} />
-      Edit
+      Edit list
     </MuiMenuItem>
   );
 };
