@@ -40,13 +40,13 @@
   "repository": "https://gitlab.com/dmikalova/lists",
   "scripts": {
     "build": "react-scripts build",
-    "build-container": "docker build -t registry.gitlab.com/dmikalova/lists:0.0.2 .",
+    "build-container": "docker build -t registry.gitlab.com/dmikalova/lists:0.0.3 .",
     "db": "json-server --watch ./public/db.json -p 3001",
-    "container": "docker run --rm -it registry.gitlab.com/dmikalova/lists:0.0.2",
+    "container": "docker run --rm -it registry.gitlab.com/dmikalova/lists:0.0.3",
     "eject": "react-scripts eject",
-    "push-container": "docker push registry.gitlab.com/dmikalova/lists:0.0.2",
+    "push-container": "docker push registry.gitlab.com/dmikalova/lists:0.0.3",
     "start": "react-scripts start",
     "test": "react-scripts test"
   },
-  "version": "0.0.2"
+  "version": "0.0.3"
 }
