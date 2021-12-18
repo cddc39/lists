@@ -3,7 +3,9 @@
     <q-header class="text-black" elevated>
       <q-toolbar>
         <q-btn flat round dense icon="list" class="q-mr-sm" />
-        <q-toolbar-title shrink>lists</q-toolbar-title>
+        <router-link :to="{ name: 'Lists' }">
+          <q-toolbar-title>lists</q-toolbar-title>
+        </router-link>
         <q-space />
         <q-btn flat round dense icon="settings"></q-btn>
       </q-toolbar>

@@ -5,7 +5,7 @@
     <q-dialog v-model="prompt">
         <q-card style="min-width: 350px">
             <q-card-section>
-                <div class="text-h6">New list name:</div>
+                <div class="text-h6">New item name:</div>
             </q-card-section>
 
             <q-card-section class="q-pt-none">
@@ -13,7 +13,7 @@
                     dense
                     v-model="name"
                     autofocus
-                    @keyup.enter="lists.createList({ name: name }); name = ''; prompt = false"
+                    @keyup.enter="items.createItem({ name: name }); name = ''; prompt = false"
                 />
             </q-card-section>
 
@@ -21,8 +21,8 @@
                 <q-btn flat label="Cancel" @click="name = ''" v-close-popup />
                 <q-btn
                     color="positive"
-                    label="Create list"
-                    @click="lists.createList({ name: name }); name = ''"
+                    label="Create item"
+                    @click="items.createItem({ name: name }); name = ''"
                     v-close-popup
                 />
             </q-card-actions>
@@ -31,9 +31,9 @@
 </template>
 
 <script setup>
-import { useListsStore } from "@/stores/lists"
+import { useItemsStore } from "@/stores/items"
 import { ref } from 'vue'
-const lists = useListsStore()
+const items = useItemsStore()
 
 let prompt = ref(false)
 let name = ""
