@@ -1,6 +1,7 @@
-# Lists
+# Vue 3 + Vite
 
-[![maintained by dmikalova.tech](https://img.shields.io/static/v1?&color=ccff90&label=maintained%20by&labelColor=424242&logo=&logoColor=fff&message=dmikalova.tech&&style=flat-square)](https://dmikalova.tech/)
-[![vue.js](https://img.shields.io/static/v1?&color=41b883&label=%20&labelColor=424242&logo=vuedotjs&logoColor=fff&message=vue.js&&style=flat-square)](https://vuejs.org/)
+This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
-This repo contains a [Vue.js](https://vuejs.org/) web app for managing lists.
+## Recommended IDE Setup
+
+- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)

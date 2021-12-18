@@ -1,0 +1,52 @@
+{
+  "author": "David Mikalova",
+  "browserslist": {
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ]
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.10.0",
+    "@material-ui/icons": "^4.9.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^10.0.4",
+    "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.19.2",
+    "json-server": "^0.16.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "typescript": "^3.9.3"
+  },
+  "description": "Quickly make simple lists",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "license": "BSD-2-Clause",
+  "name": "lists",
+  "private": true,
+  "repository": "https://gitlab.com/dmikalova/lists",
+  "scripts": {
+    "build": "react-scripts build",
+    "build-container": "docker build -t registry.gitlab.com/dmikalova/lists:0.0.3 .",
+    "db": "json-server --watch ./public/db.json -p 3001",
+    "container": "docker run --rm -it registry.gitlab.com/dmikalova/lists:0.0.3",
+    "eject": "react-scripts eject",
+    "push-container": "docker push registry.gitlab.com/dmikalova/lists:0.0.3",
+    "start": "react-scripts start",
+    "test": "react-scripts test"
+  },
+  "version": "0.0.3"
+}
