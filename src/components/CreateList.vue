@@ -9,20 +9,15 @@
             </q-card-section>
 
             <q-card-section class="q-pt-none">
-                <q-input
-                    dense
-                    v-model="name"
-                    autofocus
-                    @keyup.enter="lists.createList({ name: name }); name = ''; prompt = false"
-                />
+                <q-input dense v-model="listName" autofocus @keyup.enter="listCreate(listName)" />
             </q-card-section>
 
             <q-card-actions align="right" class="text-primary">
-                <q-btn flat label="Cancel" @click="name = ''" v-close-popup />
+                <q-btn flat label="Cancel" @click="listName = ''" v-close-popup />
                 <q-btn
                     color="positive"
                     label="Create list"
-                    @click="lists.createList({ name: name }); name = ''"
+                    @click="listCreate(listName)"
                     v-close-popup
                 />
             </q-card-actions>
@@ -34,7 +29,11 @@
 import { useListsStore } from "@/stores/lists"
 import { ref } from 'vue'
 const lists = useListsStore()
-
 let prompt = ref(false)
-let name = ""
+let listName = ""
+const listCreate = (listName) => {
+    lists.listCreate({ name: listName })
+    listName = ''
+    prompt = false
+}
 </script>

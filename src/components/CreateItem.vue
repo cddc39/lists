@@ -6,23 +6,24 @@
         <q-card style="min-width: 350px">
             <q-card-section>
                 <div class="text-h6">New item name:</div>
+                <p>{{ listName }}</p>
             </q-card-section>
 
             <q-card-section class="q-pt-none">
                 <q-input
                     dense
-                    v-model="name"
+                    v-model="itemName"
                     autofocus
-                    @keyup.enter="items.createItem({ name: name }); name = ''; prompt = false"
+                    @keyup.enter="itemCreate(listName, itemName)"
                 />
             </q-card-section>
 
             <q-card-actions align="right" class="text-primary">
-                <q-btn flat label="Cancel" @click="name = ''" v-close-popup />
+                <q-btn flat label="Cancel" @click="itemName = ''" v-close-popup />
                 <q-btn
                     color="positive"
                     label="Create item"
-                    @click="items.createItem({ name: name }); name = ''"
+                    @click="itemCreate(listName, itemName)"
                     v-close-popup
                 />
             </q-card-actions>
@@ -33,8 +34,15 @@
 <script setup>
 import { useItemsStore } from "@/stores/items"
 import { ref } from 'vue'
+defineProps({
+    listName: String
+})
 const items = useItemsStore()
-
 let prompt = ref(false)
-let name = ""
+let itemName = ""
+const itemCreate = (listName, itemName) => {
+    items.itemCreate({ listName: listName, name: itemName })
+    itemName = ''
+    prompt = false
+}
 </script>

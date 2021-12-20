@@ -10,12 +10,12 @@ export const useListsStore = defineStore({
   state: () => ({ lists: {} }),
   getters: {},
   actions: {
-    createList(list) {
+    listCreate(list) {
       list.id = uuid();
       this.lists[list.id] = list;
     },
-    deleteList(list) {
-      this.lists.splice(this.lists.indexOf(list), 1);
+    listDelete(list) {
+      delete this.lists[list.id];
     },
   },
 });

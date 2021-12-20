@@ -11,7 +11,7 @@ const router = createRouter({
       component: Lists,
     },
     {
-      path: "/list/:id",
+      path: "/list/:listName",
       name: "List",
       props: true,
       component: List,

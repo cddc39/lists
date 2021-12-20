@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { v4 as uuid } from "uuid";
+import { toRef } from "vue";
 
 export const useItemsStore = defineStore({
   id: "items",
@@ -8,14 +9,43 @@ export const useItemsStore = defineStore({
     strategies: [{ storage: localStorage }],
   },
   state: () => ({ items: {} }),
-  getters: {},
+  getters: {
+    getItemsByList: (state) => {
+      return (listName) => {
+        return Object.values(state.items).filter((item) => {
+          return item.listName === listName;
+        });
+      };
+    },
+    getActiveItemsByList: (state) => {
+      return (listName) => {
+        return Object.values(state.getItemsByList(listName)).filter((item) => {
+          return item.active;
+        });
+      };
+    },
+    getInactiveItemsByList: (state) => {
+      return (listName) => {
+        return Object.values(state.getItemsByList(listName)).filter((item) => {
+          return !item.active;
+        });
+      };
+    },
+  },
   actions: {
-    createItem(item) {
+    itemActivate: (item) => {
+      item.active = true;
+    },
+    itemCreate: (item) => {
       item.id = uuid();
       this.items[item.id] = item;
     },
-    deleteItem(item) {
-      this.items.splice(this.items.indexOf(item), 1);
+    itemDelete: (item) => {
+      console.log("deleting");
+      delete this.items[item.id];
+    },
+    itemInactivate: (item) => {
+      item.active = false;
     },
   },
 });
