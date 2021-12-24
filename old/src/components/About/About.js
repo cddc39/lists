@@ -1,21 +1,21 @@
-import React from "react";
+import React from "react"
 
-import MuiDivider from "@material-ui/core/Divider";
-import MuiList from "@material-ui/core/List";
-import MuiListIcon from "@material-ui/icons/List";
-import MuiListItem from "@material-ui/core/ListItem";
-import MuiListItemIcon from "@material-ui/core/ListItemIcon";
-import MuiListItemText from "@material-ui/core/ListItemText";
+import MuiDivider from "@material-ui/core/Divider"
+import MuiList from "@material-ui/core/List"
+import MuiListIcon from "@material-ui/icons/List"
+import MuiListItem from "@material-ui/core/ListItem"
+import MuiListItemIcon from "@material-ui/core/ListItemIcon"
+import MuiListItemText from "@material-ui/core/ListItemText"
 
-import MuiCodeIcon from "@material-ui/icons/Code";
-import MuiBackIcon from "@material-ui/icons/ArrowBack";
+import MuiCodeIcon from "@material-ui/icons/Code"
+import MuiBackIcon from "@material-ui/icons/ArrowBack"
 
-import Header from "../Header";
+import Header from "../Header"
 
 export default () => {
   const navGitlab = () => {
-    window.location.href = "https://gitlab.com/dmikalova/lists";
-  };
+    window.location.href = "https://gitlab.com/dmikalova/lists"
+  }
 
   return (
     <div>
@@ -37,5 +37,5 @@ export default () => {
         <MuiDivider />
       </MuiList>
     </div>
-  );
-};
+  )
+}

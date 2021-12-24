@@ -1,6 +1,6 @@
 <template>
   <q-page-sticky position="bottom-right" :offset="[18, 18]">
-    <q-btn @click="prompt = true" fab icon="add" color="secondary" />
+    <q-btn fab icon="add" color="secondary" @click="prompt = true" />
   </q-page-sticky>
   <q-dialog v-model="prompt">
     <q-card style="min-width: 350px">
@@ -9,36 +9,26 @@
       </q-card-section>
 
       <q-card-section class="q-pt-none">
-        <q-input
-          dense
-          v-model="listName"
-          autofocus
-          @keyup.enter="listCreate(listName)"
-        />
+        <q-input v-model="listName" dense autofocus @keyup.enter="listCreate(listName)" />
       </q-card-section>
 
       <q-card-actions align="right" class="text-primary">
-        <q-btn flat label="Cancel" @click="listName = ''" v-close-popup />
-        <q-btn
-          color="positive"
-          label="Create list"
-          @click="listCreate(listName)"
-          v-close-popup
-        />
+        <q-btn v-close-popup flat label="Cancel" @click="listName = ''" />
+        <q-btn v-close-popup color="positive" label="Create list" @click="listCreate(listName)" />
       </q-card-actions>
     </q-card>
   </q-dialog>
 </template>
 
 <script setup>
-import { useListsStore } from "@/stores/lists";
-import { ref } from "vue";
-const lists = useListsStore();
-let prompt = ref(false);
-let listName = "";
+import { useListsStore } from "@/stores/lists"
+import { ref } from "vue"
+const lists = useListsStore()
+let prompt = ref(false)
+let listName = ""
 const listCreate = (listName) => {
-  lists.listCreate({ name: listName });
-  listName = "";
-  prompt = false;
-};
+  lists.listCreate({ name: listName })
+  listName = ""
+  prompt = false
+}
 </script>

@@ -1,9 +1,6 @@
-import * as ActionTypes from "./ActionTypes";
+import * as ActionTypes from "./ActionTypes"
 
-export const Items = (
-  state = { loading: true, error: null, items: [] },
-  action
-) => {
+export const Items = (state = { loading: true, error: null, items: [] }, action) => {
   switch (action.type) {
     case ActionTypes.ADD_ITEMS:
       return {
@@ -11,17 +8,17 @@ export const Items = (
         error: null,
         loading: false,
         items: action.payload,
-      };
+      }
     case ActionTypes.ITEMS_LOADING:
-      return { ...state, error: null, loading: true, items: [] };
+      return { ...state, error: null, loading: true, items: [] }
     case ActionTypes.ITEMS_FAILED:
-      return { ...state, error: action.payload, loading: false };
+      return { ...state, error: action.payload, loading: false }
     case ActionTypes.SET_ITEM_COUNT:
-      return setItemCount(state, action.payload);
+      return setItemCount(state, action.payload)
     default:
-      return state;
+      return state
   }
-};
+}
 
 const setItemCount = (state, payload) => {
   return {
@@ -29,14 +26,14 @@ const setItemCount = (state, payload) => {
     items: [
       ...state.items.map((item) => {
         if (item.id !== payload.itemId) {
-          return item;
+          return item
         }
 
         return {
           ...item,
           count: payload.count,
-        };
+        }
       }),
     ],
-  };
-};
+  }
+}

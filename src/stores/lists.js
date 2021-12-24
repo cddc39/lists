@@ -1,5 +1,5 @@
-import { defineStore } from "pinia";
-import { v4 as uuid } from "uuid";
+import { defineStore } from "pinia"
+import { v4 as uuid } from "uuid"
 
 export const useListsStore = defineStore({
   id: "lists",
@@ -11,11 +11,11 @@ export const useListsStore = defineStore({
   getters: {},
   actions: {
     listCreate(list) {
-      list.id = uuid();
-      this.lists[list.id] = list;
+      list.id = uuid()
+      this.lists[list.id] = list
     },
     listDelete(list) {
-      delete this.lists[list.id];
+      delete this.lists[list.id]
     },
   },
-});
+})

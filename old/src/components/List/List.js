@@ -1,26 +1,26 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
+import React, { useEffect } from "react"
+import { connect } from "react-redux"
+import { Redirect } from "react-router-dom"
 
-import MuiBackIcon from "@material-ui/icons/ArrowBack";
+import MuiBackIcon from "@material-ui/icons/ArrowBack"
 
-import AddItem from "./AddItem";
-import Header from "../Header";
-import HeaderMenu from "./HeaderMenu/";
-import ItemRows from "./ItemRows";
-import { Loading } from "../Loading";
-import { fetchItems, fetchLists } from "../../redux/ActionCreators";
+import AddItem from "./AddItem"
+import Header from "../Header"
+import HeaderMenu from "./HeaderMenu/"
+import ItemRows from "./ItemRows"
+import { Loading } from "../Loading"
+import { fetchItems, fetchLists } from "../../redux/ActionCreators"
 
 const mapDispatchToProps = {
   fetchItems: () => fetchItems(),
   fetchLists: () => fetchLists(),
-};
+}
 
 const mapStateToProps = (state) => ({
   error: state.lists.error,
   lists: state.lists.lists,
   loading: state.lists.loading,
-});
+})
 
 const List = ({ list }) => {
   return (
@@ -29,25 +29,25 @@ const List = ({ list }) => {
       <ItemRows itemIds={list.itemIds} />
       <AddItem />
     </div>
-  );
-};
+  )
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(({ error, fetchItems, fetchLists, loading, lists, path }) => {
   useEffect(() => {
-    fetchItems();
-    fetchLists();
-  }, [fetchItems, fetchLists]);
+    fetchItems()
+    fetchLists()
+  }, [fetchItems, fetchLists])
 
-  const list = lists.filter((list) => list.path === path)[0];
+  const list = lists.filter((list) => list.path === path)[0]
   useEffect(() => {
     if (!list) {
-      return;
+      return
     }
-    document.title = list.name;
-  });
+    document.title = list.name
+  })
 
   if (loading) {
     return (
@@ -56,7 +56,7 @@ export default connect(
           <Loading />
         </div>
       </div>
-    );
+    )
   }
 
   if (error) {
@@ -68,16 +68,16 @@ export default connect(
           </div>
         </div>
       </div>
-    );
+    )
   }
 
   if (!lists) {
-    return <Redirect to="/" />;
+    return <Redirect to="/" />
   }
 
   if (!list) {
-    return <Redirect to="/" />;
+    return <Redirect to="/" />
   }
 
-  return <List list={list} />;
-});
+  return <List list={list} />
+})

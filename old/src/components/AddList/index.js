@@ -1,1 +1,1 @@
-export { default } from "./AddList";
+export { default } from "./AddList"

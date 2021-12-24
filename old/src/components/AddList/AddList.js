@@ -1,27 +1,27 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
+import React, { useState } from "react"
+import { connect } from "react-redux"
 
-import MuiButton from "@material-ui/core/Button";
-import MuiCard from "@material-ui/core/Card";
-import MuiCardActions from "@material-ui/core/CardActions";
-import MuiCardContent from "@material-ui/core/CardContent";
-import MuiCardMedia from "@material-ui/core/CardMedia";
-import MuiGrid from "@material-ui/core/Grid";
-import MuiTextField from "@material-ui/core/TextField";
-import MuiTypography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
+import MuiButton from "@material-ui/core/Button"
+import MuiCard from "@material-ui/core/Card"
+import MuiCardActions from "@material-ui/core/CardActions"
+import MuiCardContent from "@material-ui/core/CardContent"
+import MuiCardMedia from "@material-ui/core/CardMedia"
+import MuiGrid from "@material-ui/core/Grid"
+import MuiTextField from "@material-ui/core/TextField"
+import MuiTypography from "@material-ui/core/Typography"
+import { makeStyles } from "@material-ui/core/styles"
 
-import MuiCloseIcon from "@material-ui/icons/Close";
-import MuiPhotoIcon from "@material-ui/icons/Photo";
-import MuiSearchIcon from "@material-ui/icons/Search";
-import MuiTakePhotoIcon from "@material-ui/icons/PhotoCamera";
+import MuiCloseIcon from "@material-ui/icons/Close"
+import MuiPhotoIcon from "@material-ui/icons/Photo"
+import MuiSearchIcon from "@material-ui/icons/Search"
+import MuiTakePhotoIcon from "@material-ui/icons/PhotoCamera"
 
-import Header from "../Header";
-import { postList } from "../../redux/ActionCreators";
+import Header from "../Header"
+import { postList } from "../../redux/ActionCreators"
 
 const mapDispatchToProps = {
   postList: (list) => postList(list),
-};
+}
 
 const useStyles = makeStyles({
   root: {
@@ -38,28 +38,28 @@ const useStyles = makeStyles({
   pos: {
     marginBottom: 12,
   },
-});
+})
 
 export default connect(
   null,
   mapDispatchToProps
 )(({ postList }) => {
-  const classes = useStyles();
-  const [error, setError] = useState(false);
-  const [nameErr, setNameErr] = useState("");
-  const [name, setName] = useState("");
+  const classes = useStyles()
+  const [error, setError] = useState(false)
+  const [nameErr, setNameErr] = useState("")
+  const [name, setName] = useState("")
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    postList({ itemIds: [], name: name, path: name.toLowerCase() });
-  };
+    e.preventDefault()
+    postList({ itemIds: [], name: name, path: name.toLowerCase() })
+  }
 
   const onChange = (e) => {
     if (e.target.value.length === 0) {
-      setError(true);
-      setNameErr("You must have a name");
+      setError(true)
+      setNameErr("You must have a name")
     }
-  };
+  }
 
   return (
     <div>
@@ -68,13 +68,7 @@ export default connect(
         <MuiCardMedia image="test" title="List image" />
         <MuiCardContent>
           <form id="add-list" onSubmit={handleSubmit}>
-            <MuiGrid
-              container
-              direction="column"
-              justify="flex-start"
-              alignItems="flex-start"
-              spacing={3}
-            >
+            <MuiGrid container direction="column" justify="flex-start" alignItems="flex-start" spacing={3}>
               <MuiGrid item>
                 <MuiTextField
                   error={error}
@@ -97,29 +91,17 @@ export default connect(
                 />
               </MuiGrid>
               <MuiGrid item>
-                <MuiButton
-                  color="secondary"
-                  startIcon={<MuiTakePhotoIcon />}
-                  variant="contained"
-                >
+                <MuiButton color="secondary" startIcon={<MuiTakePhotoIcon />} variant="contained">
                   Take Photo
                 </MuiButton>
               </MuiGrid>
               <MuiGrid item>
-                <MuiButton
-                  color="secondary"
-                  startIcon={<MuiPhotoIcon />}
-                  variant="contained"
-                >
+                <MuiButton color="secondary" startIcon={<MuiPhotoIcon />} variant="contained">
                   Choose Photo
                 </MuiButton>
               </MuiGrid>
               <MuiGrid item>
-                <MuiButton
-                  color="secondary"
-                  startIcon={<MuiSearchIcon />}
-                  variant="contained"
-                >
+                <MuiButton color="secondary" startIcon={<MuiSearchIcon />} variant="contained">
                   Search for Photo
                 </MuiButton>
               </MuiGrid>
@@ -127,16 +109,11 @@ export default connect(
           </form>
         </MuiCardContent>
         <MuiCardActions>
-          <MuiButton
-            form="add-list"
-            color="primary"
-            type="submit"
-            variant="contained"
-          >
+          <MuiButton form="add-list" color="primary" type="submit" variant="contained">
             Save
           </MuiButton>
         </MuiCardActions>
       </MuiCard>
     </div>
-  );
-});
+  )
+})

@@ -31,9 +31,7 @@
     "typescript": "^3.9.3"
   },
   "description": "Quickly make simple lists",
-  "eslintConfig": {
-    "extends": "react-app"
-  },
+  "eslintConfig": {},
   "license": "BSD-2-Clause",
   "name": "lists",
   "private": true,

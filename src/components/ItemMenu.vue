@@ -13,16 +13,20 @@
 </template>
 
 <script setup>
-import ItemMenuDelete from "./ItemMenuDelete.vue";
-import { useDialogsStore } from "@/stores/dialogs";
+import ItemMenuDelete from "./ItemMenuDelete.vue"
+import { useDialogsStore } from "@/stores/dialogs"
+import { defineProps } from "vue"
 
 defineProps({
-  item: Object,
-});
+  item: {
+    type: Object,
+    required: true,
+  },
+})
 
-const dialogsStore = useDialogsStore();
+const dialogsStore = useDialogsStore()
 const dialog = (item, dialog) => {
-  dialogsStore.item = item;
-  dialogsStore[dialog] = true;
-};
+  dialogsStore.item = item
+  dialogsStore[dialog] = true
+}
 </script>

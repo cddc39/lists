@@ -1,25 +1,16 @@
 <template>
-  <q-input
-    class="q-pb-lg"
-    v-model="itemsStore.filter"
-    label="Search"
-    color="dark"
-  >
-    <template v-slot:prepend>
+  <q-input v-model="itemsStore.filter" class="q-pb-lg" label="Search" color="dark">
+    <template #prepend>
       <q-icon name="search" />
     </template>
-    <template v-slot:after>
-      <q-icon
-        name="add"
-        @click="itemsStore.filter = ''"
-        class="cursor-pointer"
-      />
+    <template #after>
+      <q-icon name="add" class="cursor-pointer" @click="itemsStore.filter = ''" />
     </template>
   </q-input>
 </template>
 
 <script setup>
-import { useItemsStore } from "@/stores/items";
-const itemsStore = useItemsStore();
-itemsStore.filter = "";
+import { useItemsStore } from "@/stores/items"
+const itemsStore = useItemsStore()
+itemsStore.filter = ""
 </script>

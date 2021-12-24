@@ -1,15 +1,15 @@
-import React from "react";
+import React from "react"
 
-import MuiDialog from "@material-ui/core/Dialog";
-import MuiDialogTitle from "@material-ui/core/DialogTitle";
-import MuiIconButton from "@material-ui/core/IconButton";
-import MuiList from "@material-ui/core/List";
-import MuiListItem from "@material-ui/core/ListItem";
-import MuiMenuItem from "@material-ui/core/MenuItem";
-import { makeStyles } from "@material-ui/core/styles";
+import MuiDialog from "@material-ui/core/Dialog"
+import MuiDialogTitle from "@material-ui/core/DialogTitle"
+import MuiIconButton from "@material-ui/core/IconButton"
+import MuiList from "@material-ui/core/List"
+import MuiListItem from "@material-ui/core/ListItem"
+import MuiMenuItem from "@material-ui/core/MenuItem"
+import { makeStyles } from "@material-ui/core/styles"
 
-import MuiCloseIcon from "@material-ui/icons/Close";
-import MuiDownloadIcon from "@material-ui/icons/CloudDownload";
+import MuiCloseIcon from "@material-ui/icons/Close"
+import MuiDownloadIcon from "@material-ui/icons/CloudDownload"
 
 const useStyles = makeStyles((theme) => ({
   closeButton: {
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     marginRight: theme.spacing(2),
   },
-}));
+}))
 
 const DownloadChoices = () => {
   return (
@@ -29,22 +29,22 @@ const DownloadChoices = () => {
       <MuiListItem button>Download as Markdown</MuiListItem>
       <MuiListItem button>Download as JSON</MuiListItem>
     </MuiList>
-  );
-};
+  )
+}
 
 export default ({ closeMenu }) => {
-  const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
-  const title = "Download list";
+  const classes = useStyles()
+  const [open, setOpen] = React.useState(false)
+  const title = "Download list"
 
   const handleOpen = () => {
-    setOpen(true);
-    closeMenu();
-  };
+    setOpen(true)
+    closeMenu()
+  }
 
   const handleClose = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
 
   return (
     <div>
@@ -52,20 +52,11 @@ export default ({ closeMenu }) => {
         <MuiDownloadIcon className={classes.icon} />
         {title}
       </MuiMenuItem>
-      <MuiDialog
-        aria-labelledby="download-dialog-title"
-        onClose={handleClose}
-        open={open}
-      >
+      <MuiDialog aria-labelledby="download-dialog-title" onClose={handleClose} open={open}>
         <MuiDialogTitle id="download-dialog-title" onClose={handleClose}>
           <div>
             {title}
-            <MuiIconButton
-              aria-label="close"
-              className={classes.closeButton}
-              onClick={handleClose}
-              size="small"
-            >
+            <MuiIconButton aria-label="close" className={classes.closeButton} onClick={handleClose} size="small">
               <MuiCloseIcon />
             </MuiIconButton>
           </div>
@@ -73,5 +64,5 @@ export default ({ closeMenu }) => {
         <DownloadChoices />
       </MuiDialog>
     </div>
-  );
-};
+  )
+}

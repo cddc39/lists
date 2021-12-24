@@ -1,6 +1,6 @@
-import Lists from "../components/Lists.vue";
-import List from "../components/Items.vue";
-import { createRouter, createWebHistory } from "vue-router";
+import Lists from "../components/Lists.vue"
+import List from "../components/Items.vue"
+import { createRouter, createWebHistory } from "vue-router"
 
 const router = createRouter({
   history: createWebHistory(),
@@ -17,6 +17,6 @@ const router = createRouter({
       component: List,
     },
   ],
-});
+})
 
-export default router;
+export default router

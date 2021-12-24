@@ -1,26 +1,26 @@
-import React from "react";
+import React from "react"
 
-import MuiMenu from "@material-ui/core/Menu";
-import MuiIconButton from "@material-ui/core/IconButton";
+import MuiMenu from "@material-ui/core/Menu"
+import MuiIconButton from "@material-ui/core/IconButton"
 
-import MuiMoreVertIcon from "@material-ui/icons/MoreVert";
+import MuiMoreVertIcon from "@material-ui/icons/MoreVert"
 
-import Download from "./Download";
-import Edit from "./Edit";
-import Share from "./Share";
-import SortItems from "./SortItems";
+import Download from "./Download"
+import Edit from "./Edit"
+import Share from "./Share"
+import SortItems from "./SortItems"
 
 export default () => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
+  const [anchorEl, setAnchorEl] = React.useState(null)
+  const open = Boolean(anchorEl)
 
   const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+    setAnchorEl(event.currentTarget)
+  }
 
   const handleClose = () => {
-    setAnchorEl(null);
-  };
+    setAnchorEl(null)
+  }
 
   return (
     <div>
@@ -53,5 +53,5 @@ export default () => {
         <SortItems closeMenu={handleClose.bind(this)} />
       </MuiMenu>
     </div>
-  );
-};
+  )
+}

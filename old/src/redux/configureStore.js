@@ -1,9 +1,9 @@
-import { applyMiddleware, combineReducers, createStore } from "redux";
-import logger from "redux-logger";
-import thunk from "redux-thunk";
+import { applyMiddleware, combineReducers, createStore } from "redux"
+import logger from "redux-logger"
+import thunk from "redux-thunk"
 
-import { Items } from "./items";
-import { Lists } from "./lists";
+import { Items } from "./items"
+import { Lists } from "./lists"
 
 export const ConfigureStore = () => {
   const store = createStore(
@@ -12,7 +12,7 @@ export const ConfigureStore = () => {
       lists: Lists,
     }),
     applyMiddleware(thunk, logger)
-  );
+  )
 
-  return store;
-};
+  return store
+}

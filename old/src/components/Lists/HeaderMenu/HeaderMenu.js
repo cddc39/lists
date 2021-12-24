@@ -1,26 +1,26 @@
-import React from "react";
+import React from "react"
 
-import MuiDivider from "@material-ui/core/Divider";
-import MuiMenu from "@material-ui/core/Menu";
-import MuiIconButton from "@material-ui/core/IconButton";
+import MuiDivider from "@material-ui/core/Divider"
+import MuiMenu from "@material-ui/core/Menu"
+import MuiIconButton from "@material-ui/core/IconButton"
 
-import MuiMoreVertIcon from "@material-ui/icons/MoreVert";
+import MuiMoreVertIcon from "@material-ui/icons/MoreVert"
 
-import About from "../../About/MenuItem";
-import Account from "../../Account/MenuItem";
-import SortLists from "./SortLists";
+import About from "../../About/MenuItem"
+import Account from "../../Account/MenuItem"
+import SortLists from "./SortLists"
 
 export default () => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
+  const [anchorEl, setAnchorEl] = React.useState(null)
+  const open = Boolean(anchorEl)
 
   const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+    setAnchorEl(event.currentTarget)
+  }
 
   const handleClose = () => {
-    setAnchorEl(null);
-  };
+    setAnchorEl(null)
+  }
 
   return (
     <div>
@@ -52,5 +52,5 @@ export default () => {
         <About closeMenu={handleClose.bind(this)} />
       </MuiMenu>
     </div>
-  );
-};
+  )
+}

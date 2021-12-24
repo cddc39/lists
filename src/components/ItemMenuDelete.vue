@@ -6,9 +6,14 @@
 </template>
 
 <script setup>
-import { useItemsStore } from "@/stores/items";
-const itemsStore = useItemsStore();
+import { useItemsStore } from "@/stores/items"
+import { defineProps } from "vue"
+
+const itemsStore = useItemsStore()
 defineProps({
-  item: Object,
-});
+  item: {
+    type: Object,
+    required: true,
+  },
+})
 </script>

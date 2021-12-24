@@ -1,38 +1,38 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import React, { useEffect } from "react"
+import { connect } from "react-redux"
 
-import MuiListIcon from "@material-ui/icons/List";
+import MuiListIcon from "@material-ui/icons/List"
 
-import AddList from "./AddList";
-import Header from "../Header/";
-import HeaderMenu from "./HeaderMenu";
-import ListRows from "./ListRows";
-import { Loading } from "../Loading";
+import AddList from "./AddList"
+import Header from "../Header/"
+import HeaderMenu from "./HeaderMenu"
+import ListRows from "./ListRows"
+import { Loading } from "../Loading"
 
-import { fetchLists } from "../../redux/ActionCreators";
+import { fetchLists } from "../../redux/ActionCreators"
 
 const mapDispatchToProps = {
   fetchLists: () => fetchLists(),
-};
+}
 
 const mapStateToProps = (state) => ({
   error: state.lists.error,
   loading: state.lists.loading,
   lists: state.lists.lists,
-});
+})
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(({ error, fetchLists, loading, lists }) => {
-  const title = "Lists";
+  const title = "Lists"
   useEffect(() => {
-    document.title = title;
-  });
+    document.title = title
+  })
 
   useEffect(() => {
-    fetchLists();
-  }, [fetchLists]);
+    fetchLists()
+  }, [fetchLists])
 
   if (loading) {
     return (
@@ -41,7 +41,7 @@ export default connect(
           <Loading />
         </div>
       </div>
-    );
+    )
   }
 
   if (error) {
@@ -53,7 +53,7 @@ export default connect(
           </div>
         </div>
       </div>
-    );
+    )
   }
 
   return (
@@ -62,5 +62,5 @@ export default connect(
       <ListRows lists={lists} />
       <AddList />
     </div>
-  );
-});
+  )
+})

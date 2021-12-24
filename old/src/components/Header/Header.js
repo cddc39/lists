@@ -1,11 +1,11 @@
-import React from "react";
+import React from "react"
 
-import MuiAppBar from "@material-ui/core/AppBar";
-import MuiButton from "@material-ui/core/Button";
-import MuiIconButton from "@material-ui/core/IconButton";
-import MuiToolbar from "@material-ui/core/Toolbar";
-import MuiTypography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
+import MuiAppBar from "@material-ui/core/AppBar"
+import MuiButton from "@material-ui/core/Button"
+import MuiIconButton from "@material-ui/core/IconButton"
+import MuiToolbar from "@material-ui/core/Toolbar"
+import MuiTypography from "@material-ui/core/Typography"
+import { makeStyles } from "@material-ui/core/styles"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,10 +17,10 @@ const useStyles = makeStyles((theme) => ({
   title: {
     textTransform: "none",
   },
-}));
+}))
 
 export default ({ icon, menu, title }) => {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <header className={classes.root}>
@@ -47,5 +47,5 @@ export default ({ icon, menu, title }) => {
         </MuiToolbar>
       </MuiAppBar>
     </header>
-  );
-};
+  )
+}

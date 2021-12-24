@@ -7,37 +7,32 @@
 
       <q-card-section class="q-pt-none">
         <q-input
+          v-model="newName"
+          v-close-popup
           color="dark"
           dense
           label="Item name"
-          v-model="newName"
           autofocus
           @keyup.enter="itemEdit(item, newName)"
-          v-close-popup
         />
       </q-card-section>
 
       <q-card-actions align="right">
-        <q-btn flat label="Cancel" v-close-popup />
-        <q-btn
-          color="positive"
-          label="Edit item"
-          @click="itemEdit(item, newName)"
-          v-close-popup
-        />
+        <q-btn v-close-popup flat label="Cancel" />
+        <q-btn v-close-popup color="positive" label="Edit item" @click="itemEdit(item, newName)" />
       </q-card-actions>
     </q-card>
   </q-dialog>
 </template>
 
 <script setup>
-import { useDialogsStore } from "@/stores/dialogs";
+import { useDialogsStore } from "@/stores/dialogs"
 
 const itemEdit = (item, newName) => {
-  item.name = newName;
-};
+  item.name = newName
+}
 
-const dialogsStore = useDialogsStore();
-const item = dialogsStore.item;
-let newName = item.name;
+const dialogsStore = useDialogsStore()
+const item = dialogsStore.item
+let newName = item.name
 </script>
