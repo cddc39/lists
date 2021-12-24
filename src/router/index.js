@@ -1,5 +1,5 @@
 import Lists from "../components/Lists.vue";
-import List from "../components/List.vue";
+import List from "../components/Items.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 const router = createRouter({
