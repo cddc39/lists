@@ -9,7 +9,7 @@
         <ItemMenu :item="item" />
       </q-item>
     </q-list>
-    <h6>crossed off:</h6>
+    <h6 v-if="itemsInactive.length">crossed off:</h6>
     <q-list separator>
       <q-item v-for="item in itemsInactive" :key="item" v-ripple clickable @click="itemsStore.itemActivate(item)">
         <q-item-section>
