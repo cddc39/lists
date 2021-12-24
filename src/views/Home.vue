@@ -19,5 +19,4 @@
   </q-layout>
 </template>
 
-<script setup>
-</script>
+<script setup></script>

@@ -42,29 +42,19 @@
   "lists": [
     {
       "id": 0,
-      "itemIds": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "itemIds": [0, 1, 2, 3],
       "name": "Groceries",
       "path": "groceries"
     },
     {
       "id": 1,
-      "itemIds": [
-        4
-      ],
+      "itemIds": [4],
       "name": "Cosmetics",
       "path": "cosmetics"
     },
     {
       "id": 2,
-      "itemIds": [
-        5,
-        6
-      ],
+      "itemIds": [5, 6],
       "name": "Home",
       "path": "home"
     }
