@@ -41,7 +41,7 @@ const items = useItemsStore()
 let prompt = ref(false)
 let itemName = ""
 const itemCreate = (listName, itemName) => {
-    items.itemCreate({ listName: listName, name: itemName })
+    items.itemCreate({ active: true, listName: listName, name: itemName })
     itemName = ''
     prompt = false
 }

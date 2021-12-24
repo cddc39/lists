@@ -13,11 +13,11 @@
             </q-item>
         </q-list>
     </div>
-    <CreateList />
+    <ListCreate />
 </template>
 
 <script setup>
-import CreateList from '../components/CreateList.vue'
+import ListCreate from './ListCreate.vue'
 import { useListsStore } from "@/stores/lists"
 const listsStore = useListsStore();
 </script>

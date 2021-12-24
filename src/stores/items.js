@@ -33,18 +33,18 @@ export const useItemsStore = defineStore({
     },
   },
   actions: {
-    itemActivate: (item) => {
+    itemActivate(item) {
       item.active = true;
     },
-    itemCreate: (item) => {
+    itemCreate(item) {
       item.id = uuid();
       this.items[item.id] = item;
     },
-    itemDelete: (item) => {
-      console.log("deleting");
+    itemDelete(item) {
+      console.log("deleting", this);
       delete this.items[item.id];
     },
-    itemInactivate: (item) => {
+    itemInactivate(item) {
       item.active = false;
     },
   },
